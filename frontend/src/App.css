@@ -11,9 +11,10 @@
   --accent-color: rgb(146, 101, 163);
   --font-color: rgb(0, 0, 0);
   --white-color: #fff;
-
-  --box-shadow1:7px 7px 27px #9c9c9c,
+  --box-shadow1:7px 7px 27px #9c9c9c,  
   -7px -7px 27px #fffdfd;
+  --box-shadow-inset:inset 7px 7px 27px #9c9c9c,  
+  inset -7px -7px 27px #fffdfd;
 }
 body{
   background-color: var(--primary-color);

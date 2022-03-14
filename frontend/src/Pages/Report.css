@@ -11,8 +11,9 @@
 }
 
 .header {
-    grid-area: a;
-    background: url(/Images/header_1.png) center center/cover no-repeat;
+    grid-area: a;    
+    background-color: var(--primary-color);
+    box-shadow: var(--box-shadow1);
     border-radius: 50px;
     margin-top: 2rem;
     margin-left: 2rem;
@@ -24,7 +25,7 @@
     text-align: center;
     justify-items: center;
     margin-top: 2.6rem;
-    color: var(--white-color);
+    color: var(--font-color);
 }
 
 .report-container{
@@ -52,11 +53,10 @@
 .report-card{
       
     margin-top: 3%;
-    background-color: var(--primary-color);
-    border: 0.1rem solid var(--accent-color);
+    background-color: var(--primary-color);   
     padding: 1rem;
     border-radius: 15px;
-    
+    box-shadow: var(--box-shadow1);
     
 }
  li{
@@ -64,4 +64,8 @@
     display: inline;
     padding: 0.7rem;
     
+}
+.report-card:hover{    
+    background-color: var(--primary-color);    
+    box-shadow: var(--box-shadow-inset);
 }
