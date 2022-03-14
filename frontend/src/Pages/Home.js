@@ -4,6 +4,13 @@ import "./Report.css";
 
 function Home() {
   const [reports, setReports] = useState([]);
+  const [hej, setHej] = useState([]);
+
+  axios.post("http://localhost:3001/getdatabase/sendid")
+         .then((res) => {
+            setHej(res.data)
+            
+         })
 
   useEffect(() => {
     axios
@@ -11,12 +18,15 @@ function Home() {
       .then((response) => {
         setReports(response.data);
       });
+      
+    
+
   }, []);
 
   return (
     <div className="home-section ">
       <div className="header">
-        <h1 className="header-h1">Min Sida</h1>
+        <h1 className="header-h1">{hej}</h1>
       </div>
       <div className="left-container"></div>
       <div className='report-container'>

@@ -13,8 +13,9 @@ app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: true}))
 
 
+
 router.get("/", (req, res) => {
-    res.send("hi")
+    res.send(filterId)
 })
 
 router.post("/", async (req, res ) => {
@@ -84,5 +85,11 @@ router.post("/", async (req, res ) => {
   
     
 }) 
+
+
+router.post("/getid", async (req, res) => {
+    const id = req.body.id
+    filterId = id
+})
 
 module.exports = router

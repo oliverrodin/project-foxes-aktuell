@@ -4,12 +4,25 @@ require('dotenv').config()
 const express = require('express')
 const router = express.Router()
 
-
-
+let filterId = ""; 
+let filterName = ""
 
 router.get("/", (req, res) => {
     res.send("hi")
 })
+
+
+
+router.post("/sendid", (req, res) => {
+    let id = filterId;
+    res.json(id)
+})
+router.post("/getid", async (req, res) => {
+    const id = req.body.id
+    filterId = id
+})
+
+
 
 router.post("/project", async (req, res) => {
     const db = await notion.databases.query({
@@ -46,9 +59,20 @@ router.post("/people", async (req, res) => {
 router.post("/report", async (req, res) => {
     
     const response = await notion.databases.query({
-        database_id: process.env.NOTION_REPORT_DATABASE_ID   
+        database_id: process.env.NOTION_REPORT_DATABASE_ID,   
+        filter: {
+            property: "Person",
+            relation: {
+                
+                    contains: filterId
+                
+            }
+
+
+            
+        }
     })
-    
+   
     const results = response.results.map((page) => {
         return {
             id: page.id,
@@ -59,6 +83,10 @@ router.post("/report", async (req, res) => {
             note: page.properties.Note.title[0].plain_text,
             comment: page.properties.Comment.rich_text[0].plain_text
         }
+
+        filterName = page.properties.Project_Name.rollup.array[0].title[0].plain_text
+
+        
     })
 
     res.json(results)
