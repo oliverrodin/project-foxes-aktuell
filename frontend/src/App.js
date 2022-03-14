@@ -5,16 +5,15 @@ import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 //Pages
 import Home from './Pages/Home'
 import CreateReport from './Pages/CreateReport'
-
+import Navbar from './Pages/Navbar'
 function App() {
 
  
   return (
     <div className='App'>
       <BrowserRouter>
-        <Link to="/" className="link"> Homepage</Link>
-        <Link to="/createreport" className="link"> Create New Timereport</Link>
-        
+        <Navbar />
+              
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/createreport" element={<CreateReport />} />

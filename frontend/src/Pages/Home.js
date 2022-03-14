@@ -1,6 +1,7 @@
 
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import './Report.css'
 
 function Home() {
     const [reports, setReports] = useState([]);
@@ -15,24 +16,16 @@ function Home() {
 
   
   return (
-    <div>
+    <div className='home-container'>
       {console.log(reports)}
       {
         reports.map((value) => {
           return(
             <div className='report-card'>
-              <ul key={value.id}>
-                <li>Person: {value.personName}</li>
-                <li>Project: {value.projectName}</li>
-                <li>Date: {value.date}</li>
-                <li>Hours:{value.hours}</li>
-                <li>Note: {value.note}</li>
-                <li>Comment: {value.comment}</li>
-                
-              </ul>
-              <button>Edit Timereport</button>
-              <button type='myButton'>Add Comment</button>
-              
+              <ul key={value.id}>     
+                <li>Date: {value.date}</li>          
+                <li>Project: {value.projectName}</li>                
+              </ul>              
             </div>
           )
         })

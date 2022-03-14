@@ -1,0 +1,22 @@
+.report-card{
+    text-align: center;    
+    margin-top: 3%;
+    background-color: var(--primary-color);
+    border: 0.1rem solid var(--accent-color);
+    padding: 1rem;
+    border-radius: 15px;
+    
+    
+}
+ li{
+    
+    display: inline;
+    padding: 0.5rem;
+    
+}
+.home-container{
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
