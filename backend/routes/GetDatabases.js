@@ -73,7 +73,7 @@ router.post("/report", async (req, res) => {
         }
     })
    
-    const results = response.results.map((page) => {
+    const  results =  response.results.map((page) => {
         return {
             id: page.id,
             personName: page.properties.Person_Name.rollup.array[0].title[0].plain_text,
@@ -84,7 +84,7 @@ router.post("/report", async (req, res) => {
             comment: page.properties.Comment.rich_text[0].plain_text
         }
 
-        filterName = page.properties.Project_Name.rollup.array[0].title[0].plain_text
+       
 
         
     })

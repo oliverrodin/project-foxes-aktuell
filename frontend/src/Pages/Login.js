@@ -11,7 +11,7 @@ import CustomSelect from '../Components/CustomSelect'
 function Login() {
     const [person, setPerson] = useState([]);
     let navigate = useNavigate();
-    
+
     useEffect(() => {
         axios.post("http://localhost:3001/getdatabase/people").then((response)=>{
             setPerson(response.data)
@@ -51,6 +51,7 @@ function Login() {
                                 })
                             } 
                     </CustomSelect>
+                    
                         <button type="submit">Välj Person</button>
                     </Form>
                 )}

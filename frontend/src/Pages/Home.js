@@ -11,6 +11,7 @@ function Home() {
             setHej(res.data)
             
          })
+  
 
   useEffect(() => {
     axios
@@ -26,11 +27,10 @@ function Home() {
   return (
     <div className="home-section ">
       <div className="header">
-        <h1 className="header-h1">{hej}</h1>
+        <h1 className="header-h1">{hej}</h1> 
       </div>
       <div className="left-container"></div>
       <div className='report-container'>
-        {console.log(reports)}
         {reports.map((value) => {
           return (
             <div className='report-card'>
@@ -42,6 +42,7 @@ function Home() {
           );
         })}
       </div>
+      
     </div>
   );
 }
