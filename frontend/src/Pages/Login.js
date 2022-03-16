@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {Formik, Form} from 'formik'
 import axios from 'axios'
+import "./Login.css";
+import {Link} from 'react-router-dom'
+import "./Fox.png"
 
 
 //PAge
@@ -32,21 +35,31 @@ function Login() {
         
   }
   return (
+      
     <div>
-        <input 
-          type="text"
+        <div className="login-div">
+        <div className="logo"></div>
+        
+        <div className="title">Foxes Timereports</div>
+        <div className="sub-title">2022</div>
+        <div className="fields">
+            <div className="username"><input 
+          type="text" placeholder="Username"
           onChange={(event) => {
               setUsername(event.target.value)
           }} 
-        />
-        <input 
-          type="password"
+        /></div>
+            <div className="password"><input 
+          type="password" placeholder="Password"
           onChange={(event) => {
               setPassword(event.target.value)
-          }} 
-        />
-
-        <button onClick={login}>Login</button>
+          }}  /></div>
+        </div>
+        <button className="signin-button" onClick={login}>Login</button>
+        <div className="link">
+        <Link to="/registration">Sign up</Link>
+        </div>
+        </div>
     </div>
   )
 }

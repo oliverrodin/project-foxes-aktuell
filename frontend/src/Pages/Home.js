@@ -1,27 +1,19 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import "./Report.css";
-<<<<<<< HEAD
 import { LoginContext } from '../Context/LoginContext'
-
-function Home() {
-  const [reports, setReports] = useState([]);
-  const { name } = useContext(LoginContext);
-=======
 import "./Modal.css";
 
 function Home() {
   const [reports, setReports] = useState([]);
   const [hej, setHej] = useState([]);
-  const [cid, setCid] = useState([]);
   const [popupcontent, setpopupcontent] = useState([]);
   const [popuptoggle, setpopuptoggle] = useState(false);
   const changeContent=(value)=>{
     setpopupcontent([value]);
     setpopuptoggle(!popuptoggle);
   };
->>>>>>> 8a885c3228809dc9d592cf36ca8d8760303e62dd
-
+const { name } = useContext(LoginContext);
   
   
   useEffect(() => {
@@ -39,7 +31,6 @@ function Home() {
   return (
     <div className="home-section ">
       <div className="header">
-<<<<<<< HEAD
         <h1 className="header-h1">{name}</h1> 
       </div>
       <div className="left-container"></div>
@@ -54,7 +45,6 @@ function Home() {
               </div>
             );
           })} 
-=======
         <div className="header-h1">{hej}</div> 
       </div>
       <div className="left-container"></div>
@@ -69,7 +59,6 @@ function Home() {
             </div>
           );
         })}
->>>>>>> 8a885c3228809dc9d592cf36ca8d8760303e62dd
       </div>
 
           {/* Pop-Up-Modalen för varje tidrapport */}
