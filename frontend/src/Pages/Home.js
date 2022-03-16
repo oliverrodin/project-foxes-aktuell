@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Report.css";
+import "./Modal.css";
 
 function Home() {
   const [reports, setReports] = useState([]);
   const [hej, setHej] = useState([]);
+  const [cid, setCid] = useState([]);
   const [popupcontent, setpopupcontent] = useState([]);
   const [popuptoggle, setpopuptoggle] = useState(false);
   const changeContent=(value)=>{
@@ -18,7 +20,6 @@ function Home() {
             
          })
   
-
   useEffect(() => {
     axios
       .post("http://localhost:3001/getdatabase/report")
@@ -33,7 +34,7 @@ function Home() {
   return (
     <div className="home-section ">
       <div className="header">
-        <h1 className="header-h1">{hej}</h1> 
+        <div className="header-h1">{hej}</div> 
       </div>
       <div className="left-container"></div>
       <div className='report-container'>
@@ -49,27 +50,36 @@ function Home() {
         })}
       </div>
 
+          {/* Pop-Up-Modalen för varje tidrapport */}
       {popuptoggle && 
       <div className="pop-up-container" onClick={changeContent}>
         <div className="pop-up-body" onClick={(e)=>e.stopPropagation()}>
             <div className="pop-up-header">
-            <button onClick={changeContent}> X </button>
+            <button className="modalbtn" onClick={changeContent}> X </button>
           </div>
           <div className="pop-up-content">
             {popupcontent.map((pop)=>{
               return (
                 <div className="pop-up-card">
+                  <p>Name: {pop.personName}</p>
                   <p>Project: {pop.projectName}</p>
                   <p>Date: {pop.date}</p>
                   <p>Hours: {pop.hours}</p>
-                  
                   <p>Note: {pop.note}</p>
+                  <p>Comment: {pop.comment}</p>
+                  <form className="pop-up-input">
+                  <label>
+                    Lägg till kommentar: 
+                    <input type="text" name="name" />
+                  </label>
+                </form>
                 </div>
               )
             })}
           </div>
         </div>
       </div>}
+              {/* Slut på Pop-Up-Modalen */}
     </div>
   );
 }
