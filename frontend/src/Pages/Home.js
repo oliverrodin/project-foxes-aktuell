@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import "./Report.css";
+import { LoginContext } from '../Context/LoginContext'
 
 function Home() {
   const [reports, setReports] = useState([]);
-  const [hej, setHej] = useState([]);
+  const { name } = useContext(LoginContext);
 
-  axios.post("http://localhost:3001/getdatabase/sendid")
-         .then((res) => {
-            setHej(res.data)
-            
-         })
+  
   
 
   useEffect(() => {
@@ -27,7 +24,7 @@ function Home() {
   return (
     <div className="home-section ">
       <div className="header">
-        <h1 className="header-h1">{hej}</h1> 
+        <h1 className="header-h1">{name}</h1> 
       </div>
       <div className="left-container"></div>
       <div className='report-container'>

@@ -1,8 +1,16 @@
 import React from 'react'
+import { Formik, useField} from 'formik'
 
-function CustomTextInput() {
+function CustomTextInput({label, ...props}) {
+  const [field, meta] = useField(props)
+
   return (
-    <div>CustomTextInput</div>
+    <>
+      <label htmlFor={props.id || props.name}>{label}</label>
+      <input className="text-input" {...field}{...props} />
+      {meta.touch && meta.error ? (
+        <div className="error">{meta.error}</div> ) : null}
+    </>
   )
 }
 

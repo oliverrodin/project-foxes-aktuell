@@ -80,7 +80,8 @@ function CreateReport() {
         url: 'https://api.notion.com/v1/pages',
         body: (
           JSON.stringify(data)),
-        headers: { "Content-Type": 'application/json' }
+        headers: { "Content-Type": 'application/json',
+                    accessToken: sessionStorage.getItem("accessToken")}
       }) 
       
        console.log(JSON.stringify(data))
@@ -108,19 +109,36 @@ function CreateReport() {
           comment: Yup.string().required()
         })}
         onSubmit={(values, {setSubmitting, resetForm}) => {
-          fetch('http://localhost:3001/createtimereports',{
-            method: 'POST',
-            url: 'https://api.notion.com/v1/pages',
-            body: (
-              JSON.stringify(values)),
-            headers: { "Content-Type": 'application/json' }
-          }) 
+          axios
+            .post('http://localhost:3001/createtimereports', 
+              values,
+              {
+                headers: {
+                  accessToken: sessionStorage.getItem("accessToken")
+                }
+              }
+            )
+            .then((res) => {
+              if (res.data.error) {
+                alert("You need to login")
+              } 
+              
+            })
+            setTimeout(() => {
+              alert(JSON.stringify(values, null, 2))
+              resetForm();
+              setSubmitting(false)
+            }, 2000)
+            
+          // fetch('http://localhost:3001/createtimereports',{
+          //   method: 'POST',
+          //   url: 'https://api.notion.com/v1/pages',
+          //   body: (
+          //     JSON.stringify(values)),
+          //   headers: { "Content-Type": 'application/json'}
+          // }) 
 
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2))
-            resetForm();
-            setSubmitting(false)
-          }, 2000)
+          
         }}
         >
         {props => (
