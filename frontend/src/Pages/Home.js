@@ -12,9 +12,10 @@ function Home() {
 
   useEffect(() => {
     axios
-      .post("http://localhost:3001/getdatabase/report")
+      .post("http://localhost:3001/getdatabase/report", {data: ""}, { headers: {accessToken: sessionStorage.getItem("accessToken")} } )
       .then((response) => {
         setReports(response.data);
+        
       });
       
     
@@ -28,16 +29,16 @@ function Home() {
       </div>
       <div className="left-container"></div>
       <div className='report-container'>
-        {reports.map((value) => {
-          return (
-            <div className='report-card'>
-              <ul key={value.id}>
-                <li>Date: {value.date}</li>
-                <li>Project: {value.projectName}</li>
-              </ul>
-            </div>
-          );
-        })}
+         {reports.map((value) => {
+            return (
+              <div className='report-card'>
+                <ul key={value.id}>
+                  <li>Date: {value.date}</li>
+                  <li>Project: {value.projectName}</li>
+                </ul>
+              </div>
+            );
+          })} 
       </div>
       
     </div>

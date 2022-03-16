@@ -58,10 +58,21 @@ router.post("/people", async (req, res) => {
 })
 
 router.post("/report", validateToken, async (req, res) => {
-    
+    const pageId = req.user.id
+    console.log(pageId)
     const response = await notion.databases.query({
         database_id: process.env.NOTION_REPORT_DATABASE_ID,   
-        
+        filter: {
+            property: "Person",
+            relation: {
+                
+                    contains: pageId
+                
+            }
+
+
+            
+        }
     })
    
     const  results =  response.results.map((page) => {
@@ -79,7 +90,7 @@ router.post("/report", validateToken, async (req, res) => {
 
         
     })
-
+    console.log(results)
     res.json(results)
 })
 
