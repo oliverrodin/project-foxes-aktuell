@@ -5,7 +5,8 @@ const express = require('express')
 const router = express.Router()
 
 let filterId = ""; 
-let filterName = ""
+let filterName = "";
+let projectId = "";
 
 router.get("/", (req, res) => {
     res.send("hi")
@@ -21,6 +22,18 @@ router.post("/getid", async (req, res) => {
     const id = req.body.id
     filterId = id
 })
+
+
+router.post("/sendPid", (req, res) => {
+    let Pid = projectId;
+    res.json(Pid)
+})
+router.post("/getPid", async (req, res) => {
+    const Pid = req.body;
+    projectId = Pid
+    res.send(projectId)
+})
+
 
 
 
@@ -56,6 +69,21 @@ router.post("/people", async (req, res) => {
     res.json(results)
 })
 
+//   router.post("/reportID", async (req, res) => {
+    
+//       const response = await notion.databases.query({
+//           database_id: process.env.NOTION_REPORT_DATABASE_ID,   
+//           filter: {
+//              property: "Project",
+//              relation: {
+                
+//                      contains: projectId
+                
+//              }
+//          }
+//      })
+//  })
+
 router.post("/report", async (req, res) => {
     
     const response = await notion.databases.query({
@@ -67,12 +95,14 @@ router.post("/report", async (req, res) => {
                     contains: filterId
                 
             }
-
-
-            
         }
     })
-   
+
+
+    
+
+
+
     const  results =  response.results.map((page) => {
         return {
             id: page.id,

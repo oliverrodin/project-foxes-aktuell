@@ -51,12 +51,9 @@ function Login() {
                                 })
                             } 
                     </CustomSelect>
-                    
                         <button type="submit">Välj Person</button>
                     </Form>
                 )}
-
-
             </Formik>
     </div>
   )
