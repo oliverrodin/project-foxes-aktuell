@@ -2,6 +2,7 @@ const { Client } = require('@notionhq/client')
 const notion = new Client({ auth: process.env.NOTION_API_KEY })
 require('dotenv').config()
 const express = require('express')
+const { validateToken } = require('../middlewares/AuthMiddlewares')
 const router = express.Router()
 
 let filterId = ""; 
@@ -48,7 +49,7 @@ router.post("/people", async (req, res) => {
     const results = db.results.map((page) => {
         return {
             id: page.id,
-            name: page.properties.Name.title[0].plain_text 
+            name: page.properties.Name.title[0].plain_text
         }
     })
 
@@ -56,15 +57,16 @@ router.post("/people", async (req, res) => {
     res.json(results)
 })
 
-router.post("/report", async (req, res) => {
-    
+router.post("/report", validateToken, async (req, res) => {
+    const pageId = req.user.id
+    console.log(pageId)
     const response = await notion.databases.query({
         database_id: process.env.NOTION_REPORT_DATABASE_ID,   
         filter: {
             property: "Person",
             relation: {
                 
-                    contains: filterId
+                    contains: pageId
                 
             }
 
@@ -88,7 +90,7 @@ router.post("/report", async (req, res) => {
 
         
     })
-
+    console.log(results)
     res.json(results)
 })
 

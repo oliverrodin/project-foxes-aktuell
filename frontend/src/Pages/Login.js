@@ -3,61 +3,50 @@ import { useNavigate } from 'react-router-dom'
 import {Formik, Form} from 'formik'
 import axios from 'axios'
 
+
 //PAge
 import CustomSelect from '../Components/CustomSelect'
 
 
 
 function Login() {
-    const [person, setPerson] = useState([]);
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
     let navigate = useNavigate();
-
-    useEffect(() => {
-        axios.post("http://localhost:3001/getdatabase/people").then((response)=>{
-            setPerson(response.data)
-            console.log(response.data)
-        })
-    }, [])
-
-    const onSubmit = (value) => {
-        fetch('http://localhost:3001/getdatabase/getid',{
-            method: 'POST',
-            url: 'https://api.notion.com/v1/pages',
-            body: (
-              JSON.stringify(value)),
-            headers: { "Content-Type": 'application/json' }
-          }) 
-
-        
-        console.log(JSON.stringify(value))
-        navigate("/home")
-    }
     
+  const login = () => {
+    const data = {username: username, password: password}
+      axios.post("http://localhost:3001/auth/login", data,
+      {headers: { accessToken: sessionStorage.getItem("accessToken") }}).then(
+          (response) => {
+            console.log(response.data)
+              if (response.data.error) {
+                 alert(response.data.error)
+              } else {
+                sessionStorage.setItem("accessToken", response.data );
+                navigate("/home");  
+              }
+              
+          }
+      )
+        
+  }
   return (
     <div>
-         <Formik initialValues={{id: ""}} onSubmit={onSubmit}>
-                {props=>(
-                    <Form>
-                    <CustomSelect name="id">
-                         <option value="">Select person</option>
-                            {
-                                person.map((pages) => {
-                                    return (
-                                    <>
-                                        <option value={pages.id}>{pages.name}</option> 
-                                    </>
-                                    )
-                                    
-                                })
-                            } 
-                    </CustomSelect>
-                    
-                        <button type="submit">Välj Person</button>
-                    </Form>
-                )}
+        <input 
+          type="text"
+          onChange={(event) => {
+              setUsername(event.target.value)
+          }} 
+        />
+        <input 
+          type="password"
+          onChange={(event) => {
+              setPassword(event.target.value)
+          }} 
+        />
 
-
-            </Formik>
+        <button onClick={login}>Login</button>
     </div>
   )
 }
