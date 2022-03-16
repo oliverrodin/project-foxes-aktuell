@@ -34,6 +34,28 @@ router.post("/project", async (req, res) => {
         return {
             id: page.id,
             name: page.properties.Name.title[0].plain_text 
+
+        }
+    })
+
+    
+    res.json(results)
+})
+
+router.post("/activeproject", validateToken, async (req, res) => {
+    const db = await notion.databases.query({
+        database_id: process.env.NOTION_PROJECT_DATABASE_ID
+    })
+
+    const results = db.results.map((page) => {
+        return {
+            id: page.id,
+            name: page.properties.Name.title[0].plain_text, 
+            dateStart: page.properties.Date.date.start,
+            dateEnd: page.properties.Date.date.end,
+            status: page.properties.Status.select.name
+
+            
         }
     })
 
