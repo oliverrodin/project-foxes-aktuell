@@ -69,3 +69,26 @@
     background-color: var(--primary-color);    
     box-shadow: var(--box-shadow-inset);
 }
+
+.pop-up-container{
+    position: fixed;
+    top: 0; 
+    bottom: 0; 
+    left: 0; 
+    right: 0;
+    background-color: rgb(202, 202, 202, 0.5);
+    padding-top: 15%;
+}
+
+.pop-up-body{
+    width: 40%;
+    height: 60%;
+    background-color: #fff;
+    margin: auto;
+}
+
+.pop-up-header{
+    width: 100%;
+    text-align: right;
+    
+}
