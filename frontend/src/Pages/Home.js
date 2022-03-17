@@ -56,12 +56,12 @@ function Home() {
                   <div>
                     <ul key={value.id} className="project-card">
           
-                      <li className="project-lines">Project: {value.name}</li>
-                      <li className="project-lines">Start: {value.dateStart}</li>
-                      <li className="project-lines">End: {value.dateEnd} </li>
-                      <li className="project-lines">Total: {value.hours} hours</li>
-                      <li className="project-lines">Worked: {value.hoursWorked} hours</li>
-                      <li className="project-lines">Left: {value.hoursLeft} hours</li>
+                      <li className="project-lines">Projekt: {value.name}</li>
+                      <li className="project-lines">Startdatum: {value.dateStart}</li>
+                      <li className="project-lines">Slutdatum: {value.dateEnd} </li>
+                      <li className="project-lines">Totaltid: {value.hours} timmar</li>
+                      <li className="project-lines">Jobbat: {value.hoursWorked} timmar</li>
+                      <li className="project-lines">Tid kvar: {value.hoursLeft} timmar</li>
                       <li className="project-lines">
                         Status:
                          <span className={value.color}>{value.status}</span>
@@ -73,30 +73,16 @@ function Home() {
           }
         </div>
       </div>
-      <div className='report-container'>
-        
-         {reports.map((value) => {
-            return (
-              <div className='report-card'>
-                <ul key={value.id}>
-                  <li>Date: {value.date}</li>
-                  <li>Project: {value.projectName}</li>
-                  
-                </ul>
-              </div>
-            );
-          })} 
-        <div className="header-h1">{hej}</div> 
-      </div>
+
       <div className="left-container"></div>
       <div className='report-container'>
+        <h2>Mina tidsrapporter</h2>
         {reports.map((value) => {
           return (
             <div className='report-card' onClick={()=>changeContent(value)}>
               <ul key={value.id}>
-                <li>Date: {value.date}</li>
-                <li>Project: {value.projectName}</li>
-                
+                <li>Datum: {value.date}</li>
+                <li>Projekt: {value.projectName}</li>                
               </ul>
             </div>
           );
@@ -114,12 +100,12 @@ function Home() {
             {popupcontent.map((pop)=>{
               return (
                 <div className="pop-up-card">
-                  <p>Name: {pop.personName}</p>
-                  <p>Project: {pop.projectName}</p>
-                  <p>Date: {pop.date}</p>
-                  <p>Hours: {pop.hours}</p>
-                  <p>Note: {pop.note}</p>
-                  <p>Comment: {pop.comment}</p>
+                  <p>Namn: {pop.personName}</p>
+                  <p>Projekt: {pop.projectName}</p>
+                  <p>Datum: {pop.date}</p>
+                  <p>Timmar: {pop.hours}</p>
+                  <p>Anteckning: {pop.note}</p>
+                  <p>Kommentar: {pop.comment}</p>
                   <form className="pop-up-input">
                   <label>
                     Lägg till kommentar: 
