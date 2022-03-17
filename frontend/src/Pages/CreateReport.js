@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage, useField } from "formik";
 import * as Yup from 'yup'
 import axios from "axios";
 import { LoginContext } from "../Context/LoginContext";
+import './CreateReport.css'
 
 const database_id = '58d96ae9275547a7960f5cca7c93e836'
 
@@ -142,12 +143,12 @@ function CreateReport() {
         {props => (
         <Form className="container">
           <h1>Create time report</h1>
-          <CustomSelect label="Person" name="person">
+          <CustomSelect className="timeReportInput" label="Person" name="person">
             <option value="">Select Project</option>
             <option value={loginId}>{name}</option>
             
           </CustomSelect>
-          <CustomSelect label="Project" name="project">
+          <CustomSelect className="timeReportInput" label="Project" name="project">
             <option value="">Select Project</option>  
             {
               project.map((pages) => {
@@ -160,14 +161,14 @@ function CreateReport() {
               })
             }
           </CustomSelect>   
-          <CustomTextInput label="Date" name="date" type="date"/>
-          <CustomTextInput label="Hours" name="hours" type="number" placeholder='ex. 10...'/>
-          <CustomTextInput label="Note" name="note" type="text" placeholder='ex. meeting...'/>
-          <CustomTextInput label="Comment" name="comment" type="text" placeholder='ex. fixed this bug...'/>
-          <label className="input">Comment:</label>
+          <CustomTextInput className="timeReportInput" label="Date" name="date" type="date"/>
+          <CustomTextInput className="timeReportInput" label="Hours" name="hours" type="number" placeholder='ex. 10...'/>
+          <CustomTextInput className="timeReportInput" label="Note" name="note" type="text" placeholder='ex. meeting...'/>
+          <CustomTextInput className="timeReportInput" label="Comment" name="comment" type="text" placeholder='ex. fixed this bug...'/>
+          
           
 
-          <button type='submit' className="button">{props.isSubmitting ? 'loading...' : 'Submit'}</button>
+          <button type='submit' className="btnPos">{props.isSubmitting ? 'loading...' : 'Submit'}</button>
         </Form>
         )}
       </Formik>

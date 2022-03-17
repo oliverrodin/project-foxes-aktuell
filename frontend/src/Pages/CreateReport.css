@@ -1,0 +1,35 @@
+.btnPos {
+    background: #3498db;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    margin: 1rem;    
+  }
+  
+  .btnPos:hover {
+    background: #3cb0fd;
+    text-decoration: none;
+  }
+  .timeReportInput{   
+      
+    border-radius: 10px;
+    font-family: Arial;
+    padding: 5px 10px 5px 10px;
+  }
+  .container{
+    margin-left: 35%;   
+    display: inline-flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 50px;  
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    background: var(--primary-color);
+    box-shadow:  var(--box-shadow-bigblur);
+  }
+ 
