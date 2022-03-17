@@ -1,5 +1,6 @@
 
 .home-section {
+    
     display: grid;
     grid-template-areas: "a a a"
                          "b c c" 
@@ -29,6 +30,7 @@
 }
 
 .report-container{
+    
     display: inline-flex;
     flex-direction: column;
     padding: 2rem;
@@ -43,7 +45,7 @@
 
 .left-container {
     border-radius: 50px;
-    
+    padding: 2rem;
     margin-left: 2rem;
     margin-bottom: 2rem;
     grid-area: b;
@@ -59,7 +61,17 @@
     box-shadow: var(--box-shadow1);
     
 }
- li{
+.project-card {
+    margin: 1rem;
+}
+
+
+.project-card li {
+    display: block;
+    padding: 0;
+}
+ 
+li{
     
     display: inline;
     padding: 0.7rem;
@@ -68,27 +80,4 @@
 .report-card:hover{    
     background-color: var(--primary-color);    
     box-shadow: var(--box-shadow-inset);
-}
-
-.pop-up-container{
-    position: fixed;
-    top: 0; 
-    bottom: 0; 
-    left: 0; 
-    right: 0;
-    background-color: rgb(202, 202, 202, 0.5);
-    padding-top: 15%;
-}
-
-.pop-up-body{
-    width: 40%;
-    height: 60%;
-    background-color: #fff;
-    margin: auto;
-}
-
-.pop-up-header{
-    width: 100%;
-    text-align: right;
-    
 }

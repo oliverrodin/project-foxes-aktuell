@@ -5,6 +5,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const axios = require('axios')
 const { createNewReport, notion } = require("../models/notion")
+const { validateToken } = require("../middlewares/AuthMiddlewares")
 const app = express()
 app.use(express.json())
 app.use(cors())
@@ -18,8 +19,8 @@ router.get("/", (req, res) => {
     res.send(filterId)
 })
 
-router.post("/", async (req, res ) => {
-    
+router.post("/", validateToken, async (req, res ) => {
+    console.log(req.user)
     const person  = req.body.person
     const project = req.body.project
     const date = req.body.date

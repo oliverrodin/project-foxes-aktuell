@@ -1,7 +1,8 @@
-import {React, useEffect, useState}from "react";
+import {React, useContext, useEffect, useState}from "react";
 import { Formik, Form, Field, ErrorMessage, useField } from "formik";
 import * as Yup from 'yup'
 import axios from "axios";
+import { LoginContext } from "../Context/LoginContext";
 
 const database_id = '58d96ae9275547a7960f5cca7c93e836'
 
@@ -50,6 +51,8 @@ const CustomSelect = ({label, ...props}) => {
 function CreateReport() {
     const [project, setProject] = useState([])
     const [person, setPerson] = useState([])
+    const { name, loginId } = useContext(LoginContext)
+
     useEffect(()  => {
      axios.post("http://localhost:3001/getdatabase/project").then((response) => {
         setProject(response.data)
@@ -73,19 +76,20 @@ function CreateReport() {
       )
     } */
     
-    const onSubmit = (data) => {
+    // const onSubmit = (data) => {
 
-        fetch('http://localhost:3001/createtimereports',{
-        method: 'POST',
-        url: 'https://api.notion.com/v1/pages',
-        body: (
-          JSON.stringify(data)),
-        headers: { "Content-Type": 'application/json' }
-      }) 
+    //     fetch('http://localhost:3001/createtimereports',{
+    //     method: 'POST',
+    //     url: 'https://api.notion.com/v1/pages',
+    //     body: (
+    //       JSON.stringify(data)),
+    //     headers: { "Content-Type": 'application/json',
+    //                 accessToken: sessionStorage.getItem("accessToken")}
+    //   }) 
       
-       console.log(JSON.stringify(data))
+    //    console.log(JSON.stringify(data))
       
-    };
+    // };
 
   return (
     <div className='createReportPage'>
@@ -108,36 +112,40 @@ function CreateReport() {
           comment: Yup.string().required()
         })}
         onSubmit={(values, {setSubmitting, resetForm}) => {
-          fetch('http://localhost:3001/createtimereports',{
-            method: 'POST',
-            url: 'https://api.notion.com/v1/pages',
-            body: (
-              JSON.stringify(values)),
-            headers: { "Content-Type": 'application/json' }
-          }) 
+          axios
+            .post('http://localhost:3001/createtimereports', 
+              values,
+              {
+                headers: {
+                  accessToken: sessionStorage.getItem("accessToken")
+                }
+              }
+            )
+            
+            setTimeout(() => {
+              alert(JSON.stringify(values, null, 2))
+              resetForm();
+              setSubmitting(false)
+            }, 2000)
+            
+          // fetch('http://localhost:3001/createtimereports',{
+          //   method: 'POST',
+          //   url: 'https://api.notion.com/v1/pages',
+          //   body: (
+          //     JSON.stringify(values)),
+          //   headers: { "Content-Type": 'application/json'}
+          // }) 
 
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2))
-            resetForm();
-            setSubmitting(false)
-          }, 2000)
+          
         }}
         >
         {props => (
         <Form className="container">
           <h1>Create time report</h1>
           <CustomSelect label="Person" name="person">
-            <option value="">Select Person</option>
-            {
-              person.map((pages) => {
-                return (
-                  <>
-                    <option value={pages.id}>{pages.name}</option> 
-                  </>
-                )
-                
-              })
-            }  
+            <option value="">Select Project</option>
+            <option value={loginId}>{name}</option>
+            
           </CustomSelect>
           <CustomSelect label="Project" name="project">
             <option value="">Select Project</option>  

@@ -16,10 +16,11 @@ app.use(express.urlencoded({ extended: true}))
 const createTimeReportRouter = require('./routes/CreateTimeReport')
 app.use("/createtimereports", createTimeReportRouter)
 
+const getProjectRouter = require('./routes/GetDatabases')
+app.use("/getdatabase", getProjectRouter)
 
-
-const getProject = require('./routes/GetDatabases')
-app.use("/getdatabase", getProject)
+const loginRouter = require('./routes/Login')
+app.use("/auth", loginRouter)
 
 
 
