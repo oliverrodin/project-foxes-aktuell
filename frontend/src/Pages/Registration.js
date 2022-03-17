@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage, useField } from "formik";
 import * as Yup from 'yup'
 
@@ -7,6 +8,7 @@ import CustomTextInput from '../Components/CustomTextInput'
 import axios from 'axios';
 
 function Registration() {
+  const navigate = useNavigate();
   return (
     <>
       <Formik
@@ -35,6 +37,7 @@ function Registration() {
         
         resetForm();
         setSubmitting(false)
+        navigate('/')     
       }}
         >
           {props => (

@@ -1,18 +1,19 @@
 .btnPos {
-    background: #3498db;
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
+    background: var(--accent-color-dark);
+    border: none;
     border-radius: 28px;
     font-family: Arial;
     color: #ffffff;
     font-size: 20px;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
-    margin: 1rem;    
+    margin: 1rem;  
+    box-shadow: 3px 3px 8px rgba(255,140,70,0.8),
+                -3px -3px 8px #fff3e4; 
   }
   
   .btnPos:hover {
-    background: #3cb0fd;
+    background: var(--accent-color-light);
     text-decoration: none;
   }
   .timeReportInput{   

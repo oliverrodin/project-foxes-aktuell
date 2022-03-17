@@ -1,9 +1,12 @@
 import {React, useContext, useEffect, useState}from "react";
+import { useNavigate } from 'react-router-dom'
 import { Formik, Form, Field, ErrorMessage, useField } from "formik";
 import * as Yup from 'yup'
 import axios from "axios";
 import { LoginContext } from "../Context/LoginContext";
 import './CreateReport.css'
+
+import Navbar from './Navbar'
 
 const database_id = '58d96ae9275547a7960f5cca7c93e836'
 
@@ -53,6 +56,7 @@ function CreateReport() {
     const [project, setProject] = useState([])
     const [person, setPerson] = useState([])
     const { name, loginId } = useContext(LoginContext)
+    const navigate = useNavigate();
 
     useEffect(()  => {
      axios.post("http://localhost:3001/getdatabase/project").then((response) => {
@@ -93,86 +97,84 @@ function CreateReport() {
     // };
 
   return (
-    <div className='createReportPage'>
-      <Formik
-        initialValues={{
-          person: "",
-          project: "",
-          date: "",
-          hours: "",
-          note:"",
-          comment:""
-        }}
-        validationSchema={
-          Yup.object().shape({
-          person: Yup.string().required(),
-          project: Yup.string().required(),
-          date: Yup.date().required(),
-          hours:Yup.number().required(),
-          note: Yup.string().required(),
-          comment: Yup.string().required()
-        })}
-        onSubmit={(values, {setSubmitting, resetForm}) => {
-          axios
-            .post('http://localhost:3001/createtimereports', 
-              values,
-              {
-                headers: {
-                  accessToken: sessionStorage.getItem("accessToken")
+    <>
+    <Navbar />
+      <div className='createReportPage'>
+        <Formik
+          initialValues={{
+            
+            project: "",
+            date: "",
+            hours: "",
+            note:"",
+            comment:""
+          }}
+          validationSchema={
+            Yup.object().shape({
+            project: Yup.string().required(),
+            date: Yup.date().required(),
+            hours:Yup.number().required(),
+            note: Yup.string().required(),
+            comment: Yup.string().required()
+          })}
+          onSubmit={(values, {setSubmitting, resetForm}) => {
+            axios
+              .post('http://localhost:3001/createtimereports', 
+                values,
+                {
+                  headers: {
+                    accessToken: sessionStorage.getItem("accessToken")
+                  }
                 }
+              )
+              
+              setTimeout(() => {
+                navigate("/home")
+                resetForm();
+                setSubmitting(false)
+              }, 2000)
+              
+              
+            // fetch('http://localhost:3001/createtimereports',{
+            //   method: 'POST',
+            //   url: 'https://api.notion.com/v1/pages',
+            //   body: (
+            //     JSON.stringify(values)),
+            //   headers: { "Content-Type": 'application/json'}
+            // }) 
+
+            
+          }}
+          >
+          {props => (
+          <Form className="container">
+            <h1>Create time report</h1>
+            <CustomSelect className="timeReportInput" label="Project" name="project">
+              <option value="">Select Project</option>  
+              {
+                project.map((pages) => {
+                  return (
+                    <>
+                      <option value={pages.id}>{pages.name}</option> 
+                    </>
+                  )
+                  
+                })
               }
-            )
+            </CustomSelect>   
+            <CustomTextInput className="timeReportInput" label="Date" name="date" type="date"/>
+            <CustomTextInput className="timeReportInput" label="Hours" name="hours" type="number" placeholder='ex. 10...'/>
+            <CustomTextInput className="timeReportInput" label="Note" name="note" type="text" placeholder='ex. meeting...'/>
+            <CustomTextInput className="timeReportInput" label="Comment" name="comment" type="text" placeholder='ex. fixed this bug...'/>
             
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2))
-              resetForm();
-              setSubmitting(false)
-            }, 2000)
             
-          // fetch('http://localhost:3001/createtimereports',{
-          //   method: 'POST',
-          //   url: 'https://api.notion.com/v1/pages',
-          //   body: (
-          //     JSON.stringify(values)),
-          //   headers: { "Content-Type": 'application/json'}
-          // }) 
 
-          
-        }}
-        >
-        {props => (
-        <Form className="container">
-          <h1>Create time report</h1>
-          <CustomSelect className="timeReportInput" label="Person" name="person">
-            <option value="">Select Project</option>
-            <option value={loginId}>{name}</option>
-            
-          </CustomSelect>
-          <CustomSelect className="timeReportInput" label="Project" name="project">
-            <option value="">Select Project</option>  
-            {
-              project.map((pages) => {
-                return (
-                  <>
-                    <option value={pages.id}>{pages.name}</option> 
-                  </>
-                )
-                
-              })
-            }
-          </CustomSelect>   
-          <CustomTextInput className="timeReportInput" label="Date" name="date" type="date"/>
-          <CustomTextInput className="timeReportInput" label="Hours" name="hours" type="number" placeholder='ex. 10...'/>
-          <CustomTextInput className="timeReportInput" label="Note" name="note" type="text" placeholder='ex. meeting...'/>
-          <CustomTextInput className="timeReportInput" label="Comment" name="comment" type="text" placeholder='ex. fixed this bug...'/>
-          
-          
-
-          <button type='submit' className="btnPos">{props.isSubmitting ? 'loading...' : 'Submit'}</button>
-        </Form>
-        )}
-      </Formik>
-    </div>
+            <button type='submit' className="btnPos">{props.isSubmitting ? 'loading...' : 'Submit'}</button>
+          </Form>
+          )}
+        </Formik>
+      </div>
+    </>
   );
 }
 

@@ -4,6 +4,7 @@ import "./Report.css";
 import { LoginContext } from '../Context/LoginContext'
 import "./Modal.css"; 
 
+import Navbar from './Navbar'
 
 function Home() {
   const [reports, setReports] = useState([]);
@@ -41,6 +42,8 @@ function Home() {
   }, []);
 
   return (
+    <>
+    <Navbar />
     <div className="home-section ">
       <div className="header">
         <h1 className="header-h1">{name}</h1> 
@@ -133,6 +136,7 @@ function Home() {
       </div>}
               {/* Slut på Pop-Up-Modalen */}
     </div>
+    </>
   );
 }
 

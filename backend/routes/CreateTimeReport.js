@@ -20,8 +20,8 @@ router.get("/", (req, res) => {
 })
 
 router.post("/", validateToken, async (req, res ) => {
-    console.log(req.user)
-    const person  = req.body.person
+    
+    const person = req.user.id
     const project = req.body.project
     const date = req.body.date
     const hours = req.body.hours

@@ -15,7 +15,7 @@ import { LoginContext } from './Context/LoginContext'
 function App() {
   const [name, setName] = useState("");
   const [loginId, setLoginId] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
  
   useEffect(() => {
     axios.get('http://localhost:3001/auth/getuser', { headers: { accessToken: sessionStorage.getItem("accessToken")}}).then((response) => {
@@ -26,10 +26,11 @@ function App() {
   return (
     <LoginContext.Provider value={{name, loginId}}>
       <BrowserRouter>
-        <Navbar />
+        
               
         <Routes>
-          <Route path="/" element={isLoggedIn ? <Home /> : <Login />} />
+          
+          <Route path="/" element= {<Login />} />
           <Route path="/registration" element={<Registration/>} />
           <Route path="/home" element={<Home />} />
           <Route path="/createreport" element={<CreateReport />} />
