@@ -47,25 +47,30 @@ function Home() {
       </div>
       <div className="left-container">
         <h2>Projekt</h2>
-        {
-          project.map((value) => {
-            
-              return (
-                <div>
-                  <ul key={value.id} className="project-card">
-                    
-                    <li className="project-lines">Project: {value.name}</li>
-                    <li className="project-lines">Start: {value.dateStart}</li>
-                    <li className="project-lines">End: {value.dateEnd} </li>
-                    <li className="project-lines">
-                      Status: 
-                       <span className={value.color}>{value.status}</span>
-                    </li>
-                  </ul>
-                </div>
-              ) 
-          })
-        }
+        <div className="project-grid">
+          {
+            project.map((value) => {
+          
+                return (
+                  <div>
+                    <ul key={value.id} className="project-card">
+          
+                      <li className="project-lines">Project: {value.name}</li>
+                      <li className="project-lines">Start: {value.dateStart}</li>
+                      <li className="project-lines">End: {value.dateEnd} </li>
+                      <li className="project-lines">Total: {value.hours} hours</li>
+                      <li className="project-lines">Worked: {value.hoursWorked} hours</li>
+                      <li className="project-lines">Left: {value.hoursLeft} hours</li>
+                      <li className="project-lines">
+                        Status:
+                         <span className={value.color}>{value.status}</span>
+                      </li>
+                    </ul>
+                  </div>
+                )
+            })
+          }
+        </div>
       </div>
       <div className='report-container'>
         

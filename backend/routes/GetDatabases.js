@@ -54,7 +54,11 @@ router.post("/activeproject", validateToken, async (req, res) => {
             dateStart: page.properties.Date.date.start,
             dateEnd: page.properties.Date.date.end,
             status: page.properties.Status.select.name,
-            color: page.properties.Status.select.color
+            color: page.properties.Status.select.color,
+            hours: page.properties.Hours.number,
+            hoursWorked: page.properties.Worked_hours.rollup.number,
+            hoursLeft: page.properties.Hours_left.formula.number
+
             
         }
     })
