@@ -72,16 +72,21 @@ function Home() {
         <h1 className="header-h1">{name}</h1> 
       </div>
       <div className="left-container">
+        <h2>Projekt</h2>
         {
           project.map((value) => {
             
               return (
                 <div>
                   <ul key={value.id} className="project-card">
-                    <li>Project: {value.name}</li>
-                    <li>Start: {value.dateStart}</li>
-                    <li>End: {value.dateEnd} </li>
-                    <li>Status: {value.status}</li>
+                    
+                    <li className="project-lines">Project: {value.name}</li>
+                    <li className="project-lines">Start: {value.dateStart}</li>
+                    <li className="project-lines">End: {value.dateEnd} </li>
+                    <li className="project-lines">
+                      Status: 
+                       <span className={value.color}>{value.status}</span>
+                    </li>
                   </ul>
                 </div>
               ) 

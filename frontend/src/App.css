@@ -7,14 +7,21 @@
   
 }
 :root{
-  --primary-color: rgb(206, 206, 206);
-  --accent-color: rgb(146, 101, 163);
-  --font-color: rgb(0, 0, 0);
+  --primary-color: #ffdeb7;
+  --accent-color-light: #ffa54b;
+  --accent-color-dark: rgba(255,140,70,255);
+  --font-color: #555;
   --white-color: #fff;
-  --box-shadow1:7px 7px 27px #9c9c9c,  
-  -7px -7px 27px #fffdfd;
-  --box-shadow-inset:inset 7px 7px 27px #9c9c9c,  
-  inset -7px -7px 27px #fffdfd;
+
+  --box-shadow-bigblur:10px 10px 30px rgba(255,140,70,0.4),
+  -10px -10px 30px #ffecd5;
+  --box-shadow-tight:
+  3px 3px 8px rgba(252, 140, 70, 0.3),
+  5px 5px 16px rgba(252, 140, 70, 0.2),
+  -3px -3px 8px #ffecd5,
+  -5px -5px 16px #ffe8cc;
+  --box-shadow-inset:inset 8px 8px 8px rgba(255,140,70,0.4),
+  inset -8px -8px 8px #ffecd5;
 }
 body{
   background-color: var(--primary-color);

@@ -18,7 +18,7 @@
     max-width: 1500px;
   }
   .navbar-logo {
-    color: #fff;
+    color: var(--font-color);
     justify-self: start;
     margin-left: 20px;
     cursor: pointer;
@@ -45,7 +45,7 @@
     height: 40px;
   }
   .nav-links {
-    color: rgb(255, 255, 255);
+    color: var(--font-color);
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -53,7 +53,7 @@
     height: 100%;
   }
   .nav-links:hover {
-    border-bottom: 4px solid #fff;
+    border-bottom: 4px solid var(--accent-color-dark);
     transition: all 0.2s ease-out;
   }
   .fa-bars {

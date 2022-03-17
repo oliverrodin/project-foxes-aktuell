@@ -66,8 +66,8 @@ router.post("/activeproject", validateToken, async (req, res) => {
             name: page.properties.Name.title[0].plain_text, 
             dateStart: page.properties.Date.date.start,
             dateEnd: page.properties.Date.date.end,
-            status: page.properties.Status.select.name
-
+            status: page.properties.Status.select.name,
+            color: page.properties.Status.select.color
             
         }
     })
