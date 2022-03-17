@@ -56,15 +56,14 @@ function Home() {
                   <div>
                     <ul key={value.id} className="project-card">
           
-                      <li className="project-lines">Project: {value.name}</li>
-                      <li className="project-lines">Start: {value.dateStart}</li>
-                      <li className="project-lines">End: {value.dateEnd} </li>
-                      <li className="project-lines">Total: {value.hours} hours</li>
-                      <li className="project-lines">Worked: {value.hoursWorked} hours</li>
-                      <li className="project-lines">Left: {value.hoursLeft} hours</li>
+                      <li className="project-lines"><strong>Project: </strong>{value.name}</li>
+                      <li className="project-lines"><strong>Start: </strong>{value.dateStart}</li>
+                      <li className="project-lines"><strong>End: </strong>{value.dateEnd} </li>
+                      <li className="project-lines"><strong>Total: </strong>{value.hours} hours</li>
+                      <li className="project-lines"><strong>Worked: </strong>{value.hoursWorked} hours</li>
+                      <li className="project-lines"><strong>Left: </strong>{value.hoursLeft} hours</li>
                       <li className="project-lines">
-                        Status:
-                         <span className={value.color}>{value.status}</span>
+                        <strong>Status: </strong><span className={value.color}>{value.status }</span>
                       </li>
                     </ul>
                   </div>
