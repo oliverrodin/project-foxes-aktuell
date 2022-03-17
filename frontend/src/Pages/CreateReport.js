@@ -5,7 +5,6 @@ import * as Yup from 'yup'
 import axios from "axios";
 import { LoginContext } from "../Context/LoginContext";
 import './CreateReport.css'
-
 import Navbar from './Navbar'
 
 const database_id = '58d96ae9275547a7960f5cca7c93e836'
@@ -59,16 +58,13 @@ function CreateReport() {
     const navigate = useNavigate();
 
     useEffect(()  => {
-     axios.post("http://localhost:3001/getdatabase/project").then((response) => {
+     axios.post("http://localhost:3001/getdatabase/project", {data: ""}, { headers: {
+      accessToken: sessionStorage.getItem("accessToken")
+    }}).then((response) => {
         setProject(response.data)
         
       }) 
 
-      axios.post("http://localhost:3001/getdatabase/people").then((response) => {
-        setPerson(response.data)
-        
-      }) 
-      
     }, [])
 
     console.log(project)

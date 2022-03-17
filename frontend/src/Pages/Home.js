@@ -45,9 +45,7 @@ function Home() {
     <>
     <Navbar />
     <div className="home-section ">
-      <div className="header">
-        <h1 className="header-h1">{name}</h1> 
-      </div>
+
       <div className="left-container">
         <h2>Projekt</h2>
         <div className="project-grid">

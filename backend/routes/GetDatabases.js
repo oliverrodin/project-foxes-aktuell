@@ -25,11 +25,31 @@ router.post("/getid", async (req, res) => {
 
 
 
-router.post("/project", async (req, res) => {
+router.post("/project", validateToken, async (req, res) => {
+    const pageId = req.user.id
     const db = await notion.databases.query({
-        database_id: process.env.NOTION_PROJECT_DATABASE_ID
-    })
+        database_id: process.env.NOTION_PROJECT_DATABASE_ID,
+        filter: {
+            and: [
+                {
+                    property: "Property",
+                    relation:{
+                        contains: pageId
+                    }
+                },
+                {
+                    property: "Status",
+                    select:{
+                        equals: "Active"
+                    }
+                }
+            ]
 
+
+            
+        }
+    })
+    
     const results = db.results.map((page) => {
         return {
             id: page.id,
@@ -43,10 +63,30 @@ router.post("/project", async (req, res) => {
 })
 
 router.post("/activeproject", validateToken, async (req, res) => {
+    const pageId = req.user.id
     const db = await notion.databases.query({
-        database_id: process.env.NOTION_PROJECT_DATABASE_ID
-    })
+        database_id: process.env.NOTION_PROJECT_DATABASE_ID,
+        filter: {
+            and: [
+                {
+                    property: "Property",
+                    relation:{
+                        contains: pageId
+                    }
+                },
+                {
+                    property: "Status",
+                    select:{
+                        equals: "Active"
+                    }
+                }
+            ]
 
+
+            
+        }
+    })
+    
     const results = db.results.map((page) => {
         return {
             id: page.id,
