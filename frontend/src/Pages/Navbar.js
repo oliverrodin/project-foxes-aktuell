@@ -1,8 +1,9 @@
-import React,{useState, useEffect} from "react";
+import React,{useState, useEffect, useContext} from "react";
 import {Link} from 'react-router-dom'
 import './Navbar.css'
 import {Button} from '../Components/Button.js'
 import CustomSelect from "../Components/CustomSelect";
+import { LoginContext } from '../Context/LoginContext'
 import axios from "axios";
 import {Formik, Form} from "formik";
 
@@ -12,7 +13,7 @@ function App() {
     const [person, setPerson] = useState([]);
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
-
+    const { name } = useContext(LoginContext);
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
 
@@ -34,6 +35,9 @@ function App() {
     }, []);
     window.addEventListener('resize', showButton);
 
+    const logout = () => {
+        sessionStorage.clear()
+    }
     
 
   return (    
@@ -48,12 +52,18 @@ function App() {
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li className='nav-item'>
                     <Link to='/home' className='nav-links' onClick={closeMobileMenu}>
-                        Home
+                        Startsida
                     </Link>
                 </li>
                 <li className='nav-item'>
                     <Link to='/createreport' className='nav-links' onClick={closeMobileMenu}>
                         Skapa tidsrapport
+                    </Link>
+                </li>
+                <li className='user'>{name}</li>
+                <li className='nav-item'>
+                    <Link to='/' className='nav-links' onClick={logout}>
+                        Logga ut
                     </Link>
                 </li>
             </ul>
