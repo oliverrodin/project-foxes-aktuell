@@ -65,7 +65,7 @@
 
 .report-card{
       
-    margin-top: 3%;
+    margin-top: 0.5rem;
     border-bottom: 2px dotted var(--accent-color-dark);
     border-left: 2px dotted var(--accent-color-dark);   
     padding: 1rem;

@@ -15,9 +15,20 @@ function Project() {
     const navigate = useNavigate();
     const [project, setProject] = useState([])
     const [filtProject, setFiltProject] = useState([])
-
+    const [dateFrom, setDateFrom] = useState("")
+    const [dateTo, setDateTo] = useState("")
+    const [isPressed, setIsPressed] = useState(false)
     
+    let sumHours = 0;
 
+    const summing = () => {  
+    const results = filtProject.map((row) => {
+        return (
+          sumHours += row.hours
+        )
+      })
+    }
+    
     useEffect(()  => {
         axios.post("http://localhost:3001/project/getprojects", {data: ""}, { headers: {
          accessToken: sessionStorage.getItem("accessToken")
@@ -58,11 +69,14 @@ function Project() {
                     console.log(values.dateFrom)
               })
               
+              setDateFrom(values.dateFrom)
+              setDateTo(values.dateTo)
               
               
               setTimeout(() => {  
                 resetForm();
                 setSubmitting(false)
+                setIsPressed(true)
               }, 2000)
               
               console.log(values)
@@ -98,16 +112,22 @@ function Project() {
         </Formik>
 
            <div className='filtered-reports-container'>
+             <h3>Rapporter</h3>
                {
                    filtProject.map((row) => {
                        return (
                            <ul>
+                               <li>{row.date}</li>
                                <li>{row.personName}</li>
                                <li>{row.hours}</li>
                            </ul>
                        )
                    })
                }
+               <h3>{isPressed ? filtProject[0].projectName : " "}</h3>
+               <h3>{summing()}{isPressed ? sumHours : " "}</h3>
+               <h3>{isPressed ? dateFrom + " - " : " "}  {isPressed ? dateTo : " "}</h3>
+               
            </div>
         </div>
     </>
