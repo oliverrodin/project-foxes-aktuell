@@ -55,11 +55,11 @@ function App() {
                         Startsida
                     </Link>
                 </li>
-                <li className='nav-item'>
+                {/* <li className='nav-item'>
                     <Link to='/createreport' className='nav-links' onClick={closeMobileMenu}>
                         Skapa tidsrapport
                     </Link>
-                </li>
+                </li> */}
                 <li className='user'>{name}</li>
                 <li className='nav-item'>
                     <Link to='/' className='nav-links' onClick={logout}>

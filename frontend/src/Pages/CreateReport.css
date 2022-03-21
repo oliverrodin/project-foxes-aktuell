@@ -22,8 +22,13 @@
     font-family: Arial;
     padding: 5px 10px 5px 10px;
   }
+  .createReportPage {
+    position: relative;
+    text-align: center;
+    margin-top: 9rem; 
+  }
   .container{
-    margin-left: 35%;   
+    
     display: inline-flex;
     flex-direction: column;
     padding: 2rem;
@@ -33,4 +38,5 @@
     background: var(--primary-color);
     box-shadow:  var(--box-shadow-bigblur);
   }
- 
+
+  
