@@ -48,7 +48,9 @@ function Home() {
     <div className="home-section ">
 
       <div className="project-container">
-        <h2>Projekt</h2>
+        <h2>Projekt <Link to="/project" className="link">
+            <i class="fa-solid fa-plus" ></i>
+          </Link></h2>
         <div className="project-grid">
           {
             project.map((value) => {
