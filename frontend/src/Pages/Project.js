@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Formik, Form } from 'formik'
+import { Formik, Form, yupToFormErrors } from 'formik'
 import * as Yup from 'yup'
 import axios from 'axios'
 import './Project.css'
@@ -13,6 +13,7 @@ import Navbar from './Navbar'
 
 function Project() {
     const navigate = useNavigate();
+    const [person, setPerson] = useState([])
     const [project, setProject] = useState([])
     const [filtProject, setFiltProject] = useState([])
     const [dateFrom, setDateFrom] = useState("")
@@ -37,7 +38,14 @@ function Project() {
            
            
          }) 
-   
+         axios.post("http://localhost:3001/project/people", {data: ""}, { headers: {
+          accessToken: sessionStorage.getItem("accessToken")
+        }}).then((response) => {
+            setPerson(response.data)
+            
+            
+          }) 
+
        }, [])
   return (
     <>
@@ -45,12 +53,14 @@ function Project() {
         <div className='project-page'>  
         <Formik
           initialValues={{
+            person: "",
             project: "",
             dateFrom: "",
             dateTo: "",
           }}
           validationSchema={
             Yup.object().shape({
+            person: Yup.string().required(),
             project: Yup.string().required(),
             dateFrom: Yup.string().required(),
             dateTo: Yup.string().required()
@@ -86,9 +96,25 @@ function Project() {
           >
           {props => (
           <Form className="">
-            <h1>Project</h1>
-            <CustomSelect className="" label="Project" name="project">
-              <option value="">Select Project</option>  
+            <h1>{isPressed ? "Projekt: " + filtProject[0].projectName : " "}</h1>
+            <h3>{isPressed ? " " : "Välj projekt och tidspan för att se mer information"}</h3>
+            
+            <CustomSelect className="" label="Medarbetare" name="person">
+              <option value="">Välj person</option>  
+              {
+                person.map((pages) => {
+                  return (
+                    <>
+                      <option value={pages.id}>{pages.name}</option> 
+                    </>
+                  )
+                  
+                })
+              }
+            </CustomSelect>   
+
+            <CustomSelect className="" label="Projekt" name="project">
+              <option value="">Välj projekt</option>  
               {
                 project.map((pages) => {
                   return (
@@ -100,8 +126,8 @@ function Project() {
                 })
               }
             </CustomSelect>   
-            <CustomTextInput className="" label="From: " name="dateFrom" type="date"/>
-            <CustomTextInput className="" label="To: " name="dateTo" type="date"/>
+            <CustomTextInput className="" label="Från: " name="dateFrom" type="date"/>
+            <CustomTextInput className="" label="Till: " name="dateTo" type="date"/>
             
             
             
@@ -112,23 +138,25 @@ function Project() {
         </Formik>
 
            <div className='filtered-reports-container'>
-             <h3>Rapporter</h3>
+             
+             
                {
                    filtProject.map((row) => {
                        return (
                            <ul>
-                               <li>{row.date}</li>
-                               <li>{row.personName}</li>
-                               <li>{row.hours}</li>
+                               <li>{"Datum: " + row.date}</li>
+                               <li>{"Namn: " + row.personName}</li>
+                               <li>{"Timmar: " + row.hours}</li>
                            </ul>
                        )
                    })
                }
-               <h3>{isPressed ? filtProject[0].projectName : " "}</h3>
-               <h3>{summing()}{isPressed ? sumHours : " "}</h3>
-               <h3>{isPressed ? dateFrom + " - " : " "}  {isPressed ? dateTo : " "}</h3>
+               
+               <h3>{summing()}{isPressed ? "Totalt " + sumHours + " timmar" : " " }</h3>
+               <h3>{isPressed ?  "Vald period: " + dateFrom  + " - " : " "}  {isPressed ? dateTo : " "}</h3>
                
            </div>
+
         </div>
     </>
   )

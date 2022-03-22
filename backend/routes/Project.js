@@ -22,10 +22,26 @@ router.post("/getprojects", validateToken, async (req, res) => {
     res.json(results)
 })
 
+router.post("/people", async (req, res) => {
+    const db = await notion.databases.query({
+        database_id: process.env.NOTION_PEOPLE_DATABASE_ID
+    })
+
+    const results = db.results.map((page) => {
+        return {
+            id: page.id,
+            name: page.properties.Name.title[0].plain_text
+        }
+    })
+
+    
+    res.json(results)
+})
 
 
 router.post('/', validateToken, async( req, res) => {
     const id = req.user.id
+    const person = req.body.person
     const project = req.body.project
     const dateFrom = req.body.dateFrom
     const dateTo = req.body.dateTo
@@ -56,6 +72,14 @@ router.post('/', validateToken, async( req, res) => {
                         }
                     }
 
+                },
+                {
+                    property: "Person",
+                    relation: {
+                        
+                            contains: person
+                        
+                    }
                 },
                 
                 
