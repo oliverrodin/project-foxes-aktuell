@@ -2,6 +2,8 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage, useField } from "formik";
 import * as Yup from 'yup'
+import './Registration.css';
+import {Link} from 'react-router-dom'
 
 //Pages
 import CustomTextInput from '../Components/CustomTextInput'
@@ -11,6 +13,12 @@ function Registration() {
   const navigate = useNavigate();
   return (
     <>
+    <div className='registration-div'>
+    <div className="logo"></div>
+        
+        <div className="title">Foxes Timereports</div>
+        <div className="sub-title">2022</div>
+        <div className="fields">
       <Formik
       initialValues={{
           name: "",
@@ -40,18 +48,24 @@ function Registration() {
         navigate('/')     
       }}
         >
+          
           {props => (
             <Form>
-              <CustomTextInput label="Name:" name="name" type="text" />
-              <CustomTextInput label="Email: " name="email" type="email" />
-              <CustomTextInput label="Username: " name="username" type="text" />
-              <CustomTextInput label="Password: " name="password" type="password" /> 
-              <button type='submit' className="button">{props.isSubmitting ? 'loading...' : 'Register'}</button>
+              <CustomTextInput className="username" placeholder="Name" input type="text" name="name"  />
+              <CustomTextInput className="username" placeholder="Email " name="email" type="email" />
+              <CustomTextInput className="username" placeholder="Username " name="username" type="text" />
+              <CustomTextInput className="username" placeholder="Password" name="password" type="password" /> 
+              <button type='submit' className="registration-button">{props.isSubmitting ? 'loading...' : 'Register'}</button>
+              <div className="link">
+        <Link to="/">Back to Login</Link>
+        </div>
             </Form>
 
           )}  
           
       </Formik>
+      </div>
+      </div>
     </>
   )
 }

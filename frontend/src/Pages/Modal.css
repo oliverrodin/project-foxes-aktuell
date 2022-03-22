@@ -9,30 +9,37 @@
 }
 
 .pop-up-body{
-    width: 30%;
-    height: 60%;
+    width: fit-content;
+    height: fit-content;
     margin: auto;
-    border-radius: 50px;
-    background: #e0e0e0;
-    box-shadow:  20px 20px 60px #bebebe,
-             -10px -10px 30px #ffffff;
+    
+    background: var(--primary-color);
+    
 }
 
 .pop-up-header{
     width: 90%;
     text-align: right;
+    padding: 0;
+}
+
+.text-line {
+    line-height: 1.6;
 }
 
 .modalbtn{
     font-size: 1.2rem;
     width: 1.2rem;
-    background-color: rgb(231, 0, 173);
+    background-color: var(--accent-color-dark);
     margin-top: 2rem;
 }
 
 .pop-up-card{
     font-size: 20px;
-    text-align: center; 
+    text-align: ; 
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+    padding-right: 2rem;
 }
 
 .pop-up-input{

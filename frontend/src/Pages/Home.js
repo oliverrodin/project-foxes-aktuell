@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import {Link} from 'react-router-dom'
 import axios from "axios";
 import "./Report.css";
 import { LoginContext } from '../Context/LoginContext'
@@ -46,25 +47,28 @@ function Home() {
     <Navbar />
     <div className="home-section ">
 
-      <div className="left-container">
-        <h2>Projekt</h2>
+      <div className="project-container">
+        <h2>Projekt <Link to="/project" className="link">
+            <i class="fa-solid fa-plus" ></i>
+          </Link></h2>
         <div className="project-grid">
           {
             project.map((value) => {
           
                 return (
-                  <div>
-                    <ul key={value.id} className="project-card">
-          
-                      <li className="project-lines"><strong>Project: </strong>{value.name}</li>
-                      <li className="project-lines"><strong>Start: </strong>{value.dateStart}</li>
-                      <li className="project-lines"><strong>End: </strong>{value.dateEnd} </li>
-                      <li className="project-lines"><strong>Total: </strong>{value.hours} hours</li>
-                      <li className="project-lines"><strong>Worked: </strong>{value.hoursWorked} hours</li>
-                      <li className="project-lines"><strong>Left: </strong>{value.hoursLeft} hours</li>
-                      <li className="project-lines">
-                        <strong>Status: </strong><span className={value.color}>{value.status }</span>
+                  <div className="project-card">
+                    <ul key={value.id} className="project-first-line">
+                      <li className="project-lines">| Projekt: {value.name} |</li>
+                      <li className="project-lines"> Datum: {value.dateStart} -{">"} {value.dateEnd} |</li>
+                      <li className="project-lines"> Status:
+                          <span className={value.color}>{value.status}</span> |
                       </li>
+                    </ul>
+                    <ul className="project-second-line">
+                      <li className="project-lines">| Totaltid: {value.hours} timmar |</li>
+                      <li className="project-lines">Jobbat: {value.hoursWorked} timmar |</li>
+                      <li className="project-lines">Tid kvar: {value.hoursLeft} timmar |</li>
+                      
                     </ul>
                   </div>
                 )
@@ -72,30 +76,20 @@ function Home() {
           }
         </div>
       </div>
+
+      
       <div className='report-container'>
-        
-         {reports.map((value) => {
-            return (
-              <div className='report-card'>
-                <ul key={value.id}>
-                  <li>Date: {value.date}</li>
-                  <li>Project: {value.projectName}</li>
-                  
-                </ul>
-              </div>
-            );
-          })} 
-        <div className="header-h1">{hej}</div> 
-      </div>
-      <div className="left-container"></div>
-      <div className='report-container'>
+        <h2 className="report-header">Mina tidsrapporter <Link to="/createreport" className="link">
+            <i class="fa-solid fa-plus" ></i>
+          </Link>
+        </h2>
+        <h2 className="plus"></h2>
         {reports.map((value) => {
           return (
             <div className='report-card' onClick={()=>changeContent(value)}>
               <ul key={value.id}>
-                <li>Date: {value.date}</li>
-                <li>Project: {value.projectName}</li>
-                
+                <li className="report-lines">Datum: {value.date}</li>
+                <li className="report-lines">Projekt: {value.projectName}</li>                
               </ul>
             </div>
           );
@@ -113,12 +107,12 @@ function Home() {
             {popupcontent.map((pop)=>{
               return (
                 <div className="pop-up-card">
-                  <p>Name: {pop.personName}</p>
-                  <p>Project: {pop.projectName}</p>
-                  <p>Date: {pop.date}</p>
-                  <p>Hours: {pop.hours}</p>
-                  <p>Note: {pop.note}</p>
-                  <p>Comment: {pop.comment}</p>
+                  <p className="text-line">Namn: {pop.personName}</p>
+                  <p className="text-line">Projekt: {pop.projectName}</p>
+                  <p className="text-line">Datum: {pop.date}</p>
+                  <p className="text-line">Timmar: {pop.hours}</p>
+                  <p className="text-line">Anteckning: {pop.note}</p>
+                  <p className="text-line">Kommentar: {pop.comment}</p>
                   <form className="pop-up-input">
                   <label>
                     Lägg till kommentar: 

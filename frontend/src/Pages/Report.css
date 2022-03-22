@@ -1,20 +1,20 @@
 
 .home-section {
-    
+    background-color: aliceblue;
     display: grid;
-    grid-template-areas: 
-                         "b c c" 
-                         "b c c";
+    grid-template-areas: "b b b" 
+                         "c c c";
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 10rem auto auto;
+    grid-template-rows: auto auto;
     align-content:center;
-    gap: 2rem;
+    height: 100vh;
+    
 }
 
 .header {
     grid-area: a;    
     background-color: var(--primary-color);
-    box-shadow: var(--box-shadow-tight);
+   
     border-radius: 50px;
     margin-top: 2rem;
     margin-left: 2rem;
@@ -29,57 +29,109 @@
     color: var(--font-color);
 }
 
+.report-header{
+    
+}
+
+.fa-plus {
+    transition: transform 0.5s ease-in-out;
+}
+.fa-plus:hover {
+    
+    
+    transform: scale(130%);
+    
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+
 .report-container{
 
-    margin-top: 2rem;
+    margin: 2rem;
     display: inline-flex;
     flex-direction: column;
     padding: 2rem;
     border-radius: 50px;
     
     grid-area: c;
-    margin-right: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: var(--box-shadow-tight)
     
-}
-
-.left-container {
     
-    margin-top: 2rem;
-    border-radius: 50px;
-    padding: 2rem;
-    margin-left: 2rem;
-    margin-bottom: 2rem;
-    grid-area: b;
-    box-shadow:  var(--box-shadow-tight)
+    
 }
 
 .report-card{
       
-    margin-top: 3%;
-    background-color: var(--primary-color);   
+    margin-top: 0.5rem;
+    border-bottom: 2px dotted var(--accent-color-dark);
+    border-left: 2px dotted var(--accent-color-dark);   
     padding: 1rem;
-    border-radius: 15px;
-    box-shadow: var(--box-shadow-tight); 
+    /* transition: transform 0.5s ease-in-out; */
+    
+    
     
 }
 
+.report-card:hover {
+    background-color: var(--primary-color);
+    
+    
+    
+    
+}
+
+.report-lines{
+    
+    display: inline;
+    padding: 0.7rem;
+    
+}
+
+.project-container {
+    
+    margin: 2rem;
+    padding: 2rem;
+    
+    grid-area: b;
+    border-bottom: 1px dotted var(--accent-color-light)
+   
+}
+
+
+
 .project-grid {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto;
+
 }
 .project-card {
-    margin: 1rem;
-    background-color: var(--primary-color);   
+    margin-bottom: 0.9rem;
+    
     padding: 1rem;
-    border-radius: 15px;
-    box-shadow: var(--box-shadow-tight); 
+    
+    border-top: 2px dotted var(--accent-color-dark);
+    border-left: 2px dotted var(--accent-color-dark);
+    
+}
+
+.project-first-line {
+    
+    padding: 0;
+    margin-bottom: 0.4rem;
+    
+    
+}
+
+.project-second-line {
+    
 }
 
 .project-lines {
-    display: block;
-    padding: 0;
+    list-style: none;
+    display: inline;
 }
 
 .red {
@@ -94,15 +146,4 @@
     background-color: rgb(124, 245, 124);
 }
  
-li{
-    
-    display: inline;
-    padding: 0.7rem;
-    
-}
-.report-card:hover{  
-      
-    background-color: var(--primary-color);
-      
-    box-shadow: var(--box-shadow-inset);
-}
+

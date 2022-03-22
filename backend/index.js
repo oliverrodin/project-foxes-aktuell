@@ -22,6 +22,9 @@ app.use("/getdatabase", getProjectRouter)
 const loginRouter = require('./routes/Login')
 app.use("/auth", loginRouter)
 
+const projectRouter = require('./routes/Project')
+app.use("/project", projectRouter)
+
 
 
 

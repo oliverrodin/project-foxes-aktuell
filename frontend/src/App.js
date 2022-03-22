@@ -9,6 +9,7 @@ import CreateReport from './Pages/CreateReport'
 import Navbar from './Pages/Navbar'
 import Login from './Pages/Login'
 import Registration from './Pages/Registration';
+import Project from './Pages/Project'
 
 import { LoginContext } from './Context/LoginContext'
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/registration" element={<Registration/>} />
           <Route path="/home" element={<Home />} />
           <Route path="/createreport" element={<CreateReport />} />
+          <Route path="/project" element={<Project/>} />
         </Routes> 
       </BrowserRouter>
     </LoginContext.Provider>
