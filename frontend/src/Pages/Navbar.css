@@ -1,5 +1,5 @@
 .navbar {
-    background: var(--primary-color);
+    background: #ffdeb7;
     /* background: url(/Images/header_1.png) center center/cover no-repeat; */
     height: 80px;
     display: flex;

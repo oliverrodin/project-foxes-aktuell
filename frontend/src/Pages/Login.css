@@ -1,9 +1,18 @@
+.login-page {
+  justify-items: center;
+}
+
 .login-div {
-    margin-left: 35%;
-    margin-top: 2%;
+    
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    margin: 0 auto;
     width:430px;
-    height: 700px;
-    padding: 60px 35px 35px 35px;
+    height: fit-content;
+    padding: 2rem;
     border-radius: 50px;
     background: var(--primary-color);
     box-shadow:  var(--box-shadow-bigblur);
@@ -57,8 +66,8 @@
   .username, .password {
     margin-bottom: 30px;
     border-radius: 25px;
-    box-shadow: inset 8px 8px 8px rgba(255,140,70,0.4),
-                inset -8px -8px 8px #ffecd5;
+    box-shadow: inset 8px 8px 8px rgba(110, 110, 110, 0.4),
+                inset -8px -8px 8px #fff;
   }
 
   .fields svg {
@@ -79,8 +88,8 @@
     color:#fff;
     text-align: center;
     background: var(--accent-color-dark);
-    box-shadow: 3px 3px 8px rgba(255,140,70,0.8),
-                -3px -3px 8px #fff3e4;
+    box-shadow: 3px 3px 8px rgba(110, 110, 110, 0.4),
+                -3px -3px 8px #fff;
     transition: 0.5s;
   }
   .signin-button:hover {

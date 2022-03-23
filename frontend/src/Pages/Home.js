@@ -52,7 +52,29 @@ function Home() {
             <i class="fa-solid fa-plus" ></i>
           </Link></h2>
         <div className="project-grid">
-          {
+          <table>
+            <thead className="table-head">
+              <th>Status</th>
+              <th>Project</th>
+              <th>Datum</th>
+              <th>Tid</th>
+            </thead>
+            <tbody>
+              {
+                project.map((row) => {
+                  return (
+                    <tr className="project-line">
+                      <td>{row.status}</td>
+                      <td>{row.name}</td>
+                      <td>{row.dateStart} - {row.dateEnd}</td>
+                      <td>{row.hours}</td>
+                    </tr>
+                  )
+                })
+              }
+            </tbody>
+          </table>
+          {/* {
             project.map((value) => {
           
                 return (
@@ -73,7 +95,7 @@ function Home() {
                   </div>
                 )
             })
-          }
+          } */}
         </div>
       </div>
 

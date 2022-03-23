@@ -1,8 +1,10 @@
 .registration-div {
-    margin-left: 35%;
-    margin-top: 2%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
     width:430px;
-    height: 850px;
+    height: fit-content;
     padding: 60px 35px 35px 35px;
     border-radius: 50px;
     background: var(--primary-color);
@@ -31,32 +33,33 @@
     padding-top: 24px;
     letter-spacing: 0.5px;
   }
-  .sub-title {
+  .sub-title-reg {
     text-align: center;
     font-size: 19px;
     padding-top: 7px;
     letter-spacing: 3px;
+    margin-bottom: 2rem;
   }
 
   .fields {
     width: 100%;
     padding: 75px 5px 5px 5px;
   }
-  .fields input {
+  .fields-reg input {
     border: none;
     outline:none;
     background: none;
     font-size: 18px;
     color: #555;
-    padding:20px 10px 20px 5px;
+    padding: 10px;
     width: 100%;
   }
 
-  .username, .password {
-    margin-bottom: 30px;
+  .username-reg, .password-reg {
+    margin-bottom: 15px;
     border-radius: 25px;
-    box-shadow: inset 8px 8px 8px rgba(255,140,70,0.4),
-                inset -8px -8px 8px #ffecd5;
+    box-shadow: inset 8px 8px 8px rgba(110, 110, 110, 0.4),
+    inset -8px -8px 8px #fff;
   }
 
   .registration-button {
@@ -72,8 +75,8 @@
     color:#fff;
     text-align: center;
     background: var(--accent-color-dark);
-    box-shadow: 3px 3px 8px rgba(255,140,70,0.8),
-                -3px -3px 8px #fff3e4;
+    box-shadow: 3px 3px 8px rgba(110, 110, 110, 0.4),
+                -3px -3px 8px #fff;
     transition: 0.5s;
   }
   .registration-button:hover {

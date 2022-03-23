@@ -7,21 +7,21 @@
   
 }
 :root{
-  --primary-color: #ffdeb7;
+  --primary-color: aliceblue;
   --accent-color-light: #ffa54b;
   --accent-color-dark: rgba(255,140,70,255);
   --font-color: #555;
   --white-color: #fff;
 
-  --box-shadow-bigblur:10px 10px 30px rgba(255,140,70,0.4),
-  -10px -10px 30px #ffecd5;
+  --box-shadow-bigblur:10px 10px 30px rgba(110, 110, 110, 0.4),
+  -10px -10px 30px #fff;
   --box-shadow-tight:
-  3px 3px 8px rgba(252, 140, 70, 0.3),
-  5px 5px 16px rgba(252, 140, 70, 0.2),
-  -3px -3px 8px #ffecd5,
-  -5px -5px 16px #ffe8cc;
-  --box-shadow-inset:inset 8px 8px 8px rgba(255,140,70,0.4),
-  inset -8px -8px 8px #ffecd5;
+  3px 3px 8px rgba(110, 110, 110, 0.4),
+  5px 5px 16px rgba(110, 110, 110, 0.4),
+  -3px -3px 8px #fff,
+  -5px -5px 16px #fff;
+  --box-shadow-inset:inset 8px 8px 8px rgba(110, 110, 110, 0.4),
+  inset -8px -8px 8px #fff;
 }
 body{
   /* background-color: var(--primary-color); */

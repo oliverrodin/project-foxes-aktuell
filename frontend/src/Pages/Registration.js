@@ -17,8 +17,8 @@ function Registration() {
     <div className="logo"></div>
         
         <div className="title">Foxes Timereports</div>
-        <div className="sub-title">2022</div>
-        <div className="fields">
+        <div className="sub-title-reg">2022</div>
+        <div className="fields-reg">
       <Formik
       initialValues={{
           name: "",
@@ -51,10 +51,10 @@ function Registration() {
           
           {props => (
             <Form>
-              <CustomTextInput className="username" placeholder="Name" input type="text" name="name"  />
-              <CustomTextInput className="username" placeholder="Email " name="email" type="email" />
-              <CustomTextInput className="username" placeholder="Username " name="username" type="text" />
-              <CustomTextInput className="username" placeholder="Password" name="password" type="password" /> 
+              <CustomTextInput className="username-reg" placeholder="Name" input type="text" name="name"  />
+              <CustomTextInput className="username-reg" placeholder="Email " name="email" type="email" />
+              <CustomTextInput className="username-reg" placeholder="Username " name="username" type="text" />
+              <CustomTextInput className="username-reg" placeholder="Password" name="password" type="password" /> 
               <button type='submit' className="registration-button">{props.isSubmitting ? 'loading...' : 'Register'}</button>
               <div className="link">
         <Link to="/">Back to Login</Link>
