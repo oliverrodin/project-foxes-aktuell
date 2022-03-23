@@ -28,24 +28,61 @@
     background-color: aliceblue;
     height: 100vh;
 }
+.table-container-report{
+    margin: 2rem;
+    padding: 2rem;
+}
 
 .table {
     margin-top: 1rem;
     border-collapse:collapse;
-    width: 100%;
+    width: 100%;    
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
   }
   
   .th, .td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #DDD;
-  }
 
+  }
+  .project-total-line{
+    font-size: 1.2rem;
+    line-height: 2;
+    background-color: rgb(223, 222, 222); 
+    font-weight: bold;
+  }
   
   .tr:hover {background-color: var(--primary-color)}
 
 .project-name{
     margin-top: 1rem;
+}
+
+/*table*/
+
+
+.table-head {
+    text-align: left;
+    font-size: 1.2rem;
+    padding: 8px;
+    background-color: rgb(223, 222, 222);
+    line-height: 2;
+    border-bottom: 1px solid lightgray;
+    
+}
+
+.project-line {
+    
+    font-size: 1.2rem;
+    line-height: 2;
+    background-color: rgb(245, 245, 245);   
+    
+
+}
+
+.project-line:nth-child(even) {
+    background-color: rgb(238, 238, 238);
 }
 
 .project-date{

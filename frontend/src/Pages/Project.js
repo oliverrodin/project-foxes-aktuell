@@ -174,7 +174,7 @@ function Project() {
                   <option value=''>Välj medarbetare</option>
                   <option value='b0c48f83-d4ee-4006-85fb-fa3f505dc9ff'>
                     Alla medarbetare
-                  </option>
+                  </option>                 
                   {person.map((pages) => {
                     return (
                       <>
@@ -193,7 +193,7 @@ function Project() {
                   <option value=''>Välj projekt</option>
                   <option value='Alla projekt'>
                     Alla projekt
-                  </option>
+                  </option>                  
                   {project.map((pages) => {
                     return (
                       <>
@@ -229,7 +229,7 @@ function Project() {
           )}
         </Formik>
 
-        <div className='filtered-reports-container'>
+        <div className='table-container-report'>
           <h2 className="project-name">
             {isPressed
               ? projectName
@@ -243,22 +243,22 @@ function Project() {
           </h3>
           
           <table className="table">
-            <th className="th">{isPressed ? "Datum: " : " " }</th>
-            <th className="th">{isPressed ? "Medarbetare: " : " " }</th>
-            <th className="th">{isPressed ? "Timmar: " : " " }</th>
+            {isPressed ? <th className="table-head"> Datum:  </th> : " " }
+            {isPressed ? <th className="table-head"> Medarbetare:  </th> : " " }
+            {isPressed ? <th className="table-head"> Timmar:  </th> : " " }
           {filtProject.map((row) => {
             return (
               
-              <tr className="tr">
+              <tr className="project-line">
                 <td className="td">{row.date}</td>
                 <td className="td">{row.personName}</td>
                 <td className="td">{row.hours}</td>
               </tr>
             );
           })}
-          {isPressed ? <tr className="tr">
+          {isPressed ? <tr className="project-total-line">
             <td className="td">Totalt: </td>
-            <td className="td"></td>
+            <td></td>
             <td className="td">{summing()}{sumHours}</td>
           </tr> : " "}
           </table>
