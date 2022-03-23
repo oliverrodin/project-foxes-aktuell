@@ -9,6 +9,7 @@ import CustomTextInput from "../Components/CustomTextInput"
 import Navbar from './Navbar'
 import { Formik, Form, Field, ErrorMessage, useField } from "formik";
 import * as Yup from 'yup'
+import Footer from "./Footer";
 
 function Home() {
   const [reports, setReports] = useState([]);
@@ -221,7 +222,8 @@ function Home() {
           </div>
         </div>}
               {/* Slut på Pop-Up-Modalen */}
-    
+              
+  <Footer/> 
     </>
   );
 }
