@@ -1,9 +1,64 @@
 
+.admin-container{
+    text-align: center;
+    display: block;
+
+}
+
+.project-header{
+    text-align:center;
+}
+
+.admin-form{
+    margin-top: 0.8rem;
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+}
+
+.admin-button{
+    text-align: center;
+
+}
+
+.admin-card{
+    
+}
+
 .project-page {
     background-color: aliceblue;
     height: 100vh;
 }
 
+table {
+    margin-top: 1rem;
+    border-collapse:collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #DDD;
+  }
 
+  
+  tr:hover {background-color: var(--primary-color)}
 
+.project-name{
+    margin-top: 1rem;
+}
 
+.project-date{
+    margin-top: 1rem;
+}
+
+  @media screen and (max-width: 960px) {
+
+    .admin-form{
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+  }

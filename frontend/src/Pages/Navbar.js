@@ -43,7 +43,7 @@ function App() {
   return (    
     <nav className='navbar'>
         <div className='navbar-container'>
-            <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+            <Link to="/home" className="navbar-logo" onClick={closeMobileMenu}>
                 Foxes <i className='fa-solid fa-code'/> 
             </Link>
             <div className='menu-icon' onClick={handleClick}>
