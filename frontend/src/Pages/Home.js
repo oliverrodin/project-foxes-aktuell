@@ -47,106 +47,102 @@ function Home() {
     <Navbar />
     
 
-      <div className="project-container">
-        <h2>Mina projekt <Link to="/project" className="link">
-            <i class="fa-solid fa-plus" ></i>
-          </Link></h2>
-        <div className="project-grid">
-          <table className=" table-container">
-            <thead className="table-head">
-              <th>Status</th>
-              <th>Project</th>
-              <th>Datum</th>
-              <th>Tid</th>
-            </thead>
-            <tbody>
-              {
-                project.map((row) => {
-                  return (
-                    <tr className="project-line">
-                      <td>{row.status}</td>
-                      <td>{row.name}</td>
-                      <td>{row.dateStart} - {row.dateEnd}</td>
-                      <td>{row.hours}</td>
-                    </tr>
-                  )
-                })
-              }
-            </tbody>
-          </table>
-          {/* {
-            project.map((value) => {
+      <div className="home-page">
+        <div className="project-container">
+          <h2>Mina projekt <Link to="/project" className="link">
+              <i class="fa-solid fa-plus" ></i>
+            </Link></h2>
           
+            <table className=" table-container">
+              <thead className="table-head">
+                <th>Project</th>
+                <th>Status</th>
+                <th>Datum</th>
+                <th>Tid</th>
+              </thead>
+              <tbody>
+                {
+                  project.map((row) => {
+                    return (
+                      <tr className="project-line">
+                        <td>{row.name}</td>
+                        <td>{row.status}</td>
+                        <td>{row.dateStart} - {row.dateEnd}</td>
+                        <td>{row.hours}</td>
+                      </tr>
+                    )
+                  })
+                }
+              </tbody>
+            </table>
+          
+          
+        </div>
+        
+        <div className='report-container'>
+
+          <h2 className="report-header">Mina tidsrapporter <Link to="/createreport" className="link">
+              <i class="fa-solid fa-plus" ></i>
+            </Link>
+          </h2>
+          <table className="table-container">
+              <thead className="table-head">
+              <th>Datum</th>
+                <th>Project</th>
+                
+                
+                
+              </thead>
+              <tbody>
+                {
+                  reports.map((row) => {
+                    return (
+                      <tr className="report-line" onClick={()=>changeContent(row)}>
+                        <td>{row.date}</td>
+                        <td>{row.projectName}</td>
+                        <td></td>
+                        
+                      </tr>
+                    )
+                  })
+                }
+              </tbody>
+            </table>
+        
+          
+        
+        </div>
+        
+            {/* Pop-Up-Modalen för varje tidrapport */}
+        {popuptoggle &&
+        <div className="pop-up-container" onClick={changeContent}>
+          <div className="pop-up-body" onClick={(e)=>e.stopPropagation()}>
+              <div className="pop-up-header">
+              <button className="modalbtn" onClick={changeContent}> X </button>
+            </div>
+            <div className="pop-up-content">
+              {popupcontent.map((pop)=>{
                 return (
-                  <div className="project-card">
-                    <ul key={value.id} className="project-first-line">
-                      <li className="project-lines">| Projekt: {value.name} |</li>
-                      <li className="project-lines"> Datum: {value.dateStart} -{">"} {value.dateEnd} |</li>
-                      <li className="project-lines"> Status:
-                          <span className={value.color}>{value.status}</span> |
-                      </li>
-                    </ul>
-                    <ul className="project-second-line">
-                      <li className="project-lines">| Totaltid: {value.hours} timmar |</li>
-                      <li className="project-lines">Jobbat: {value.hoursWorked} timmar |</li>
-                      <li className="project-lines">Tid kvar: {value.hoursLeft} timmar |</li>
-                      
-                    </ul>
+                  <div className="pop-up-card">
+                    <p className="text-line">Namn: {pop.personName}</p>
+                    <p className="text-line">Projekt: {pop.projectName}</p>
+                    <p className="text-line">Datum: {pop.date}</p>
+                    <p className="text-line">Timmar: {pop.hours}</p>
+                    <p className="text-line">Anteckning: {pop.note}</p>
+                    <p className="text-line">Kommentar: {pop.comment}</p>
+                    <form className="pop-up-input">
+                    <label>
+                      Lägg till kommentar:
+                      <input type="text" name="name" />
+                    </label>
+                  </form>
                   </div>
                 )
-            })
-          } */}
-        </div>
-      </div>
-
-      
-      <div className='report-container'>
-        <h2 className="report-header">Mina tidsrapporter <Link to="/createreport" className="link">
-            <i class="fa-solid fa-plus" ></i>
-          </Link>
-        </h2>
-        <h2 className="plus"></h2>
-        {reports.map((value) => {
-          return (
-            <div className='report-card' onClick={()=>changeContent(value)}>
-              <ul key={value.id}>
-                <li className="report-lines">Datum: {value.date}</li>
-                <li className="report-lines">Projekt: {value.projectName}</li>                
-              </ul>
+              })}
             </div>
-          );
-        })}
+          </div>
+        </div>}
       </div>
-        
-          {/* Pop-Up-Modalen för varje tidrapport */}
-      {popuptoggle && 
-      <div className="pop-up-container" onClick={changeContent}>
-        <div className="pop-up-body" onClick={(e)=>e.stopPropagation()}>
-            <div className="pop-up-header">
-            <button className="modalbtn" onClick={changeContent}> X </button>
-          </div>
-          <div className="pop-up-content">
-            {popupcontent.map((pop)=>{
-              return (
-                <div className="pop-up-card">
-                  <p className="text-line">Namn: {pop.personName}</p>
-                  <p className="text-line">Projekt: {pop.projectName}</p>
-                  <p className="text-line">Datum: {pop.date}</p>
-                  <p className="text-line">Timmar: {pop.hours}</p>
-                  <p className="text-line">Anteckning: {pop.note}</p>
-                  <p className="text-line">Kommentar: {pop.comment}</p>
-                  <form className="pop-up-input">
-                  <label>
-                    Lägg till kommentar: 
-                    <input type="text" name="name" />
-                  </label>
-                </form>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </div>}
               {/* Slut på Pop-Up-Modalen */}
     
     </>

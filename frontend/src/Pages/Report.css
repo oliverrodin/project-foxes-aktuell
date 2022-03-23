@@ -1,14 +1,9 @@
 
-.home-section {
-    background-color: aliceblue;
+.home-page {
     display: grid;
-    grid-template-areas: "b b b" 
-                         "c c c";
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto auto;
-    align-content:center;
-    height: 100vh;
-    
+    grid-template-columns: 1fr;
+    gap: 5rem;
+    margin: 2rem;
 }
 
 .header {
@@ -36,32 +31,40 @@
 
 
 .table-container {
+    width: 100%;
     border-collapse: collapse;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+    
+    
     
 }
 .table-head {
     text-align: left;
     font-size: 1.2rem;
-    background-color: rgb(223, 222, 222);
+    background-color: rgb(216, 222, 226);
     line-height: 2;
-    border-bottom: 1px solid lightgray;
+    border: 1px solid lightgray;
     
 }
 
 .project-line {
-    
     font-size: 1.2rem;
     line-height: 2;
-    background-color: rgb(245, 245, 245);
-    
-    
-
+    background-color: aliceblue;
+    border: 1px solid lightgray;
 }
 
-.project-line:nth-child(even) {
-    background-color: rgb(238, 238, 238);
+.report-line {
+    font-size: 1.2rem;
+    line-height: 2;
+    background-color: aliceblue;
+    border: 1px solid lightgray;
 }
+
+.report-line:hover {
+    background-color: var(--accent-color-light);
+}
+
 
 .fa-plus {
     transition: transform 0.5s ease-in-out;
@@ -80,14 +83,13 @@
 
 
 .report-container{
-
-    margin: 2rem;
-    display: inline-flex;
-    flex-direction: column;
-    padding: 2rem;
-    border-radius: 50px;
     
-    grid-area: c;
+    
+    
+    
+    
+    
+    
     
     
     
@@ -121,20 +123,14 @@
 }
 
 .project-container {
-    
-    margin: 2rem;
-    padding: 2rem;
-    
-    grid-area: b;
-    border-bottom: 1px dotted var(--accent-color-light)
-   
+    margin-top: 2.5rem;
 }
 
 
 
 .project-grid {
     display: grid;
-    grid-template-columns: auto;
+    
 
 }
 .project-card {
