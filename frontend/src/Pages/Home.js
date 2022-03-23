@@ -95,7 +95,7 @@ function Home() {
           );
         })}
       </div>
-
+        
           {/* Pop-Up-Modalen för varje tidrapport */}
       {popuptoggle && 
       <div className="pop-up-container" onClick={changeContent}>

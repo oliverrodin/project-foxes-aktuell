@@ -6,7 +6,7 @@ import Table from 'react-bootstrap/Table'
 import * as Yup from "yup";
 import axios from "axios";
 import "./Project.css";
-import 'bootstrap/dist/css/bootstrap.css';
+
 
 import CustomTextInput from "../Components/CustomTextInput";
 import CustomSelect from "../Components/CustomSelect";
@@ -236,29 +236,8 @@ function Project() {
               : " "}
           </h1>
           
-          <Table striped bordered hover >
-            <thead>
-              <tr>
-                <th>Datum</th>
-                <th>Namn</th>
-                <th>Timmar</th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                filtProject.map((row) => {
-                  return (
-                    <tr>
-                      <td>{row.date}</td>
-                      <td>{row.personName}</td>
-                      <td>{row.hours}</td>
-                    </tr>
-                  )
-                })
-              }
-            </tbody>
-          </Table>
-          {/* {filtProject.map((row) => {
+          
+          {filtProject.map((row) => {
             return (
               <ul className="admin-card">
                 <li className="admin-card-line">{"Datum: " + row.date}</li>
@@ -266,13 +245,14 @@ function Project() {
                 <li>{"Timmar: " + row.hours}</li>
               </ul>
             );
-          })} */}
+          })}
 
           <h3>
             {summing()}
             {isPressed
-              ? "Totalt " + sumHours + " timmar"
+              ? "Totalt: " + sumHours
               : " "}
+            
           </h3>
           <h3>
             {isPressed
