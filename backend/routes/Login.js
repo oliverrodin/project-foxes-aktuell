@@ -56,7 +56,7 @@ router.post("/", async (req, res) => {
 
 router.post("/login", async (req, res) => {
     const {username, password} = req.body
-    console.log(req.body)
+    
     
     const user = await notion.databases.query({
         database_id: process.env.NOTION_PEOPLE_DATABASE_ID,

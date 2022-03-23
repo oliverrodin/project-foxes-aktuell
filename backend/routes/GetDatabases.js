@@ -5,7 +5,7 @@ const express = require('express')
 const { validateToken } = require('../middlewares/AuthMiddlewares')
 const router = express.Router()
 
-let filterId = ""; 
+let filterId = ""
 let filterName = ""
 
 router.get("/", (req, res) => {
@@ -156,7 +156,7 @@ router.post("/report", validateToken, async (req, res) => {
 
         
     })
-    console.log(results)
+    
     res.json(results)
 })
 

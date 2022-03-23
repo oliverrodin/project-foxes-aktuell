@@ -50,17 +50,17 @@ function App() {
                 <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
             </div>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                <li className='nav-item'>
+                {/* <li className='nav-item'>
                     <Link to='/home' className='nav-links' onClick={closeMobileMenu}>
                         Startsida
                     </Link>
-                </li>
+                </li> */}
                 {/* <li className='nav-item'>
                     <Link to='/createreport' className='nav-links' onClick={closeMobileMenu}>
                         Skapa tidsrapport
                     </Link>
                 </li> */}
-                <li className='user'>{name}</li>
+                <li className='user nav-links'>{name}</li>
                 <li className='nav-item'>
                     <Link to='/' className='nav-links' onClick={logout}>
                         Logga ut
