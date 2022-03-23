@@ -29,20 +29,20 @@
     height: 100vh;
 }
 
-table {
+.table {
     margin-top: 1rem;
     border-collapse:collapse;
     width: 100%;
   }
   
-  th, td {
+  .th, .td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #DDD;
   }
 
   
-  tr:hover {background-color: var(--primary-color)}
+  .tr:hover {background-color: var(--primary-color)}
 
 .project-name{
     margin-top: 1rem;

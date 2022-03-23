@@ -52,7 +52,7 @@ function Home() {
             <i class="fa-solid fa-plus" ></i>
           </Link></h2>
         <div className="project-grid">
-          <table>
+          <table className=" table-container">
             <thead className="table-head">
               <th>Status</th>
               <th>Project</th>

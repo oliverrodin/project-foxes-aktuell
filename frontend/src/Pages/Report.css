@@ -34,19 +34,25 @@
 }
 {/* TABLE*/}
 
+.table-container {
+    border-collapse: collapse;
+    
+}
 .table-head {
     text-align: left;
     font-size: 1.2rem;
     background-color: rgb(255, 214, 160);
     line-height: 2;
+    border-bottom: 1px solid lightgray;
+    
 }
 
 .project-line {
-    border-bottom: 1px solid lightgray;
+    
     font-size: 1.2rem;
     line-height: 2;
     background-color: rgb(255, 241, 223);
-    border: none;
+    
 
 }
 

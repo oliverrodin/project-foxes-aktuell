@@ -242,24 +242,24 @@ function Project() {
             {isPressed ? dateTo : " "}
           </h3>
           
-          <table className="project-table">
-            <th>{isPressed ? "Datum: " : " " }</th>
-            <th>{isPressed ? "Medarbetare: " : " " }</th>
-            <th>{isPressed ? "Timmar: " : " " }</th>
+          <table className="table">
+            <th className="th">{isPressed ? "Datum: " : " " }</th>
+            <th className="th">{isPressed ? "Medarbetare: " : " " }</th>
+            <th className="th">{isPressed ? "Timmar: " : " " }</th>
           {filtProject.map((row) => {
             return (
               
-              <tr className="">
-                <td>{row.date}</td>
-                <td>{row.personName}</td>
-                <td>{row.hours}</td>
+              <tr className="tr">
+                <td className="td">{row.date}</td>
+                <td className="td">{row.personName}</td>
+                <td className="td">{row.hours}</td>
               </tr>
             );
           })}
-          {isPressed ? <tr>
-            <td>Totalt: </td>
-            <td></td>
-            <td>{summing()}{sumHours}</td>
+          {isPressed ? <tr className="tr">
+            <td className="td">Totalt: </td>
+            <td className="td"></td>
+            <td className="td">{summing()}{sumHours}</td>
           </tr> : " "}
           </table>
         </div>
