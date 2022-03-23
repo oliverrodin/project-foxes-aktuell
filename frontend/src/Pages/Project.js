@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik, Form, yupToFormErrors } from "formik";
+import Table from 'react-bootstrap/Table'
+
 import * as Yup from "yup";
 import axios from "axios";
 import "./Project.css";
+import 'bootstrap/dist/css/bootstrap.css';
 
 import CustomTextInput from "../Components/CustomTextInput";
 import CustomSelect from "../Components/CustomSelect";
@@ -20,6 +23,8 @@ function Project() {
   const [isPressed, setIsPressed] = useState(false);
   const [projectName, setProjectName] = useState("")
 
+
+  
   let sumHours = 0;
 
   const summing = () => {
@@ -230,8 +235,30 @@ function Project() {
               ? "Projekt: " + projectName
               : " "}
           </h1>
-
-          {filtProject.map((row) => {
+          
+          <Table striped bordered hover >
+            <thead>
+              <tr>
+                <th>Datum</th>
+                <th>Namn</th>
+                <th>Timmar</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                filtProject.map((row) => {
+                  return (
+                    <tr>
+                      <td>{row.date}</td>
+                      <td>{row.personName}</td>
+                      <td>{row.hours}</td>
+                    </tr>
+                  )
+                })
+              }
+            </tbody>
+          </Table>
+          {/* {filtProject.map((row) => {
             return (
               <ul className="admin-card">
                 <li className="admin-card-line">{"Datum: " + row.date}</li>
@@ -239,7 +266,7 @@ function Project() {
                 <li>{"Timmar: " + row.hours}</li>
               </ul>
             );
-          })}
+          })} */}
 
           <h3>
             {summing()}
