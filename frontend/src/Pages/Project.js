@@ -244,6 +244,7 @@ function Project() {
           
           <table className="table">
             {isPressed ? <th className="table-head"> Datum:  </th> : " " }
+            {isPressed ? <th className="table-head"> Projekt:  </th> : " " }
             {isPressed ? <th className="table-head"> Medarbetare:  </th> : " " }
             {isPressed ? <th className="table-head"> Timmar:  </th> : " " }
           {filtProject.map((row) => {
@@ -251,6 +252,7 @@ function Project() {
               
               <tr className="project-line">
                 <td className="td">{row.date}</td>
+                <td className="td">{row.projectName}</td>
                 <td className="td">{row.personName}</td>
                 <td className="td">{row.hours}</td>
               </tr>
@@ -258,6 +260,7 @@ function Project() {
           })}
           {isPressed ? <tr className="project-total-line">
             <td className="td">Totalt: </td>
+            <td></td>
             <td></td>
             <td className="td">{summing()}{sumHours}</td>
           </tr> : " "}

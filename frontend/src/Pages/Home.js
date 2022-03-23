@@ -54,7 +54,7 @@ function Home() {
             </Link></h2>
           
             <table className=" table-container">
-              <thead className="table-head">
+              <thead className="table-head-home">
                 <th>Project</th>
                 <th>Status</th>
                 <th>Datum</th>
@@ -64,7 +64,7 @@ function Home() {
                 {
                   project.map((row) => {
                     return (
-                      <tr className="project-line">
+                      <tr className="project-line-home">
                         <td>{row.name}</td>
                         <td>{row.status}</td>
                         <td>{row.dateStart} - {row.dateEnd}</td>
@@ -86,7 +86,7 @@ function Home() {
             </Link>
           </h2>
           <table className="table-container">
-              <thead className="table-head">
+              <thead className="table-head-home">
               <th>Datum</th>
                 <th>Project</th>
                 
