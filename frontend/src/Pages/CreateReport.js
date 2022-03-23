@@ -95,7 +95,7 @@ function CreateReport() {
   return (
     <>
     <Navbar />
-      <div className='createReportPage'>
+      
         <Formik
           initialValues={{
             
@@ -169,7 +169,7 @@ function CreateReport() {
           </Form>
           )}
         </Formik>
-      </div>
+      
     </>
   );
 }

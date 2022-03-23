@@ -32,16 +32,18 @@
 .report-header{
     
 }
-{/* TABLE*/}
+/* TABLE*/
+
 
 .table-container {
     border-collapse: collapse;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
     
 }
 .table-head {
     text-align: left;
     font-size: 1.2rem;
-    background-color: rgb(255, 214, 160);
+    background-color: rgb(223, 222, 222);
     line-height: 2;
     border-bottom: 1px solid lightgray;
     
@@ -51,13 +53,14 @@
     
     font-size: 1.2rem;
     line-height: 2;
-    background-color: rgb(255, 241, 223);
+    background-color: rgb(245, 245, 245);
+    
     
 
 }
 
 .project-line:nth-child(even) {
-    background-color: bisque;
+    background-color: rgb(238, 238, 238);
 }
 
 .fa-plus {

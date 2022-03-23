@@ -1,14 +1,15 @@
 .navbar {
     background: #ffdeb7;
-    /* background: url(/Images/header_1.png) center center/cover no-repeat; */
-    height: 80px;
+    background: url(/Images/navbar.jpg) center center/cover no-repeat; 
+    height: 12rem;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
     position: sticky;
     top: 0;
-    z-index: 999;
+    
+    opacity: 0.2;
   }
   .navbar-container {
     display: flex;
@@ -26,6 +27,7 @@
     font-size: 2rem;
     display: flex;
     align-items: center;
+    
   }
   .fa-code {
     margin-left: 1rem;

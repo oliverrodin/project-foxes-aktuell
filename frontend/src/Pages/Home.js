@@ -45,7 +45,7 @@ function Home() {
   return (
     <>
     <Navbar />
-    <div className="home-section ">
+    
 
       <div className="project-container">
         <h2>Mina projekt <Link to="/project" className="link">
@@ -148,7 +148,7 @@ function Home() {
         </div>
       </div>}
               {/* Slut på Pop-Up-Modalen */}
-    </div>
+    
     </>
   );
 }
