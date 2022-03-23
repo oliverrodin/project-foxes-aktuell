@@ -161,7 +161,7 @@ function Project() {
           }}>
           {(props) => (
             <>
-              <h3>
+              <h3 className="project-header">
                 {isPressed
                   ? " "
                   : "Välj projekt och tidspan för att se mer information"}
@@ -169,7 +169,7 @@ function Project() {
               <Form className='admin-container'>
                 <CustomSelect
                   className='admin-form'
-                  label='Medarbetare'
+                  label='Medarbetare:'
                   name='person'>
                   <option value=''>Välj medarbetare</option>
                   <option value='b0c48f83-d4ee-4006-85fb-fa3f505dc9ff'>
@@ -188,7 +188,7 @@ function Project() {
 
                 <CustomSelect
                   className='admin-form'
-                  label='Projekt'
+                  label='Projekt:'
                   name='project'>
                   <option value=''>Välj projekt</option>
                   <option value='Alla projekt'>
@@ -206,23 +206,23 @@ function Project() {
                 </CustomSelect>
                 <CustomTextInput
                   className='admin-form'
-                  label='Från: '
+                  label='Från:'
                   name='dateFrom'
                   type='date'
                 />
                 <CustomTextInput
                   className='admin-form'
-                  label='Till: '
+                  label='Till:'
                   name='dateTo'
                   type='date'
                 />
 
                 <button
                   type='submit'
-                  className='admin-form admin-button'>
+                  className='admin-button'>
                   {props.isSubmitting
-                    ? "loading..."
-                    : "Submit"}
+                    ? "Laddar..."
+                    : "Visa rapporter"}
                 </button>
               </Form>
             </>
@@ -230,36 +230,38 @@ function Project() {
         </Formik>
 
         <div className='filtered-reports-container'>
-          <h1>
+          <h2 className="project-name">
             {isPressed
-              ? "Projekt: " + projectName
+              ? projectName
               : " "}
-          </h1>
-          
-          
-          {filtProject.map((row) => {
-            return (
-              <ul className="admin-card">
-                <li className="admin-card-line">{"Datum: " + row.date}</li>
-                <li>{"Namn: " + row.personName}</li>
-                <li>{"Timmar: " + row.hours}</li>
-              </ul>
-            );
-          })}
-
-          <h3>
-            {summing()}
-            {isPressed
-              ? "Totalt: " + sumHours
-              : " "}
-            
-          </h3>
-          <h3>
+          </h2>
+          <h3 className="project-date">
             {isPressed
               ? "Vald period: " + dateFrom + " - "
               : " "}{" "}
             {isPressed ? dateTo : " "}
           </h3>
+          
+          <table className="project-table">
+            <th>{isPressed ? "Datum: " : " " }</th>
+            <th>{isPressed ? "Medarbetare: " : " " }</th>
+            <th>{isPressed ? "Timmar: " : " " }</th>
+          {filtProject.map((row) => {
+            return (
+              
+              <tr className="">
+                <td>{row.date}</td>
+                <td>{row.personName}</td>
+                <td>{row.hours}</td>
+              </tr>
+            );
+          })}
+          {isPressed ? <tr>
+            <td>Totalt: </td>
+            <td></td>
+            <td>{summing()}{sumHours}</td>
+          </tr> : " "}
+          </table>
         </div>
       </div>
     </div>
