@@ -66,7 +66,7 @@ function Project() {
       });
   }, []);
   return (
-    <div >
+    <>
       <Navbar />
       <div className='project-page'>
         <Formik
@@ -270,7 +270,7 @@ function Project() {
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

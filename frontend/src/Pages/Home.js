@@ -29,7 +29,9 @@ function Home() {
     setpopuptoggle2(!popuptoggle2)
   }
 
-
+  function refreshPage() {
+    window.location.reload(false);
+  }
   
   
   useEffect(() => {
@@ -68,7 +70,9 @@ function Home() {
                 <th>Project</th>
                 <th>Status</th>
                 <th>Datum</th>
-                <th>Tid</th>
+                <th className="right">Total</th>
+                <th className="right">Arbetad</th>
+                <th className="right">Återstående</th>
               </thead>
               <tbody>
                 {
@@ -78,7 +82,9 @@ function Home() {
                         <td>{row.name}</td>
                         <td>{row.status}</td>
                         <td>{row.dateStart} - {row.dateEnd}</td>
-                        <td>{row.hours}</td>
+                        <td className="right">{row.hours}</td>
+                        <td className="right">{row.hoursWorked}</td>
+                        <td className="right">{row.hoursLeft}</td>
                       </tr>
                     )
                   })
@@ -105,7 +111,7 @@ function Home() {
                       <tr className="report-line" onClick={()=>changeContent(row)}>
                         <td>{row.date}</td>
                         <td>{row.projectName}</td>
-                        <td></td>
+                        
                         
                       </tr>
                     )
@@ -184,8 +190,9 @@ function Home() {
               )
               
               setTimeout(() => {
-                navigate("/home")
+                refreshPage()
                 resetForm();
+                changeContent2();
                 setSubmitting(false)
               }, 2000)
 

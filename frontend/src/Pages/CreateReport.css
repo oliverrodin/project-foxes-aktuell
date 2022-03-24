@@ -1,10 +1,10 @@
 .btnPos {
     background: var(--accent-color-dark);
     border: none;
-    border-radius: 28px;
+    border-radius: 10px;
     font-family: Arial;
     color: #ffffff;
-    font-size: 20px;
+    font-size: 16px;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
     margin: 1rem;  
@@ -35,11 +35,11 @@
     display: inline-flex;
     flex-direction: column;
     padding: 2rem;
-    border-radius: 50px;  
+    border-radius: 10px;
     margin-right: 2rem;
     margin-bottom: 2rem;
     background: var(--primary-color);
-    box-shadow:  var(--box-shadow-bigblur);
+    
   }
 
   

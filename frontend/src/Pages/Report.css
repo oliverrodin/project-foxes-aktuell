@@ -61,6 +61,16 @@
     border: 1px solid lightgray;
 }
 
+.report-line td,
+.project-line-home td,
+.table-head-home th {
+    padding: 8px
+}
+
+.right {
+    text-align: right;
+}
+
 .report-line:hover {
     background-color: var(--accent-color-light);
 }
@@ -192,5 +202,11 @@
         line-height: 2.5;
         background-color: aliceblue;
         border: 1px solid lightgray;
+    }
+
+    .report-line td,
+    .project-line-home td,
+    .table-head-home th {
+        padding: 4px
     }
 }
