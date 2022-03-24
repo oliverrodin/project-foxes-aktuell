@@ -10,7 +10,7 @@ const Footer = () => {
         <p>Foxes Timereport </p>
       </div>
       <div className="footer-bottom">
-          <span>
+          <span className="span1">
             <Typewriter
               options={{
                 strings: ["Rasmus, Oliver, Pontus and Wilhelm."],

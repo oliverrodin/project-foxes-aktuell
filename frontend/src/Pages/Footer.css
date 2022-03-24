@@ -3,11 +3,7 @@ footer {
     padding-top: 1rem;
     padding-bottom: 1rem;
     background-color: rgb(216, 222, 226);
-    
-    position: relative;
-    bottom: 0;
-   
-    width: 100%;
+    position:absolute  ;
  }
 
  .logo-footer {
@@ -56,7 +52,7 @@ footer {
   
 }
 
-.footer-bottom span {
+.footer-bottom .span1 {
     opacity: .65;
     font-weight: 200;
     font-size: 1rem;
