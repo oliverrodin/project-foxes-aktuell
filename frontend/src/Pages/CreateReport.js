@@ -69,29 +69,6 @@ function CreateReport() {
 
     console.log(project)
 
-    /* const Projects = () => {
-      return(
-        <>
-          <options></option>
-        </>
-      )
-    } */
-    
-    // const onSubmit = (data) => {
-
-    //     fetch('http://localhost:3001/createtimereports',{
-    //     method: 'POST',
-    //     url: 'https://api.notion.com/v1/pages',
-    //     body: (
-    //       JSON.stringify(data)),
-    //     headers: { "Content-Type": 'application/json',
-    //                 accessToken: sessionStorage.getItem("accessToken")}
-    //   }) 
-      
-    //    console.log(JSON.stringify(data))
-      
-    // };
-
   return (
     <>
     <Navbar />
@@ -129,17 +106,7 @@ function CreateReport() {
                 resetForm();
                 setSubmitting(false)
               }, 2000)
-              
-              
-            // fetch('http://localhost:3001/createtimereports',{
-            //   method: 'POST',
-            //   url: 'https://api.notion.com/v1/pages',
-            //   body: (
-            //     JSON.stringify(values)),
-            //   headers: { "Content-Type": 'application/json'}
-            // }) 
 
-            
           }}
           >
           {props => (
