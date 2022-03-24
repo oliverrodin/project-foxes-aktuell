@@ -10,20 +10,22 @@ import Navbar from './Navbar'
 import { Formik, Form, Field, ErrorMessage, useField } from "formik";
 import * as Yup from 'yup'
 import Footer from "./Footer";
+import Spinner from "../Components/Spinner";
 
 function Home() {
   const [reports, setReports] = useState([]);
   const [project, setProject] = useState([]);
-  const [hej, setHej] = useState([]);
   const [popupcontent, setpopupcontent] = useState([]);
   const [popuptoggle, setpopuptoggle] = useState(false);
   const [popuptoggle2, setpopuptoggle2] = useState(false);
-  const { name } = useContext(LoginContext);
+  const [isLoadingReports, setIsLoadingReports] = useState(true);
+  const [isLoadingProjects, setIsLoadingProjects] = useState(true);
+  
   const changeContent=(value)=>{
     setpopupcontent([value]);
     setpopuptoggle(!popuptoggle);
   };
-  let navigate = useNavigate();
+
 
   const changeContent2=()=>{
     setpopuptoggle2(!popuptoggle2)
@@ -39,6 +41,7 @@ function Home() {
       .post("http://localhost:3001/getdatabase/report", {data: ""}, { headers: {accessToken: sessionStorage.getItem("accessToken")} } )
       .then((response) => {
         setReports(response.data);
+        setIsLoadingProjects(false)
         
       });
 
@@ -48,6 +51,7 @@ function Home() {
       }})
       .then((response) => {
         setProject(response.data)
+        setIsLoadingReports(false)
       })
       
     
@@ -61,11 +65,13 @@ function Home() {
 
       <div className="home-page">
         <div className="project-container">
+          
           <h2>Mina projekt <Link to="/project" className="link">
               <i class="fa-solid fa-plus" ></i>
             </Link></h2>
           
-            <table className=" table-container-home">
+            <table className="table-container-home">
+             { isLoadingProjects && <Spinner/>}
               <thead className="table-head-home">
                 <th>Project</th>
                 <th>Status</th>
@@ -100,6 +106,7 @@ function Home() {
           <h2 className="report-header" >Mina tidsrapporter <i class="fa-solid fa-plus" onClick={()=>changeContent2(popuptoggle2)}></i>
           </h2>
           <table className="table-container-home">
+          { isLoadingReports && <div className="spinner-center"> <Spinner/></div> } 
               <thead className="table-head-home">
               <th>Datum</th>
                 <th>Project</th>

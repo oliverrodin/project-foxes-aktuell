@@ -14,6 +14,7 @@ import CustomSelect from "../Components/CustomSelect";
 
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Spinner from "../Components/Spinner";
 
 function Project() {
   const navigate = useNavigate();
@@ -24,7 +25,9 @@ function Project() {
   const [dateTo, setDateTo] = useState("");
   const [isPressed, setIsPressed] = useState(false);
   const [projectName, setProjectName] = useState("")
-
+  const [isLoading, setIsLoading] = useState(false)
+ 
+  
 
   
   let sumHours = 0;
@@ -84,13 +87,15 @@ function Project() {
           })}
           onSubmit={(
             values,
-            { setSubmitting, resetForm },
+            { setSubmitting, resetForm, },
+            
           ) => {
             if (
               values.person ===
                 "b0c48f83-d4ee-4006-85fb-fa3f505dc9ff" &&
               values.project === "Alla projekt"
             ) {
+              
               axios
                 .post(
                   "http://localhost:3001/project/justdate",
@@ -105,6 +110,7 @@ function Project() {
                   },
                 )
                 .then((res) => {
+                  
                   setFiltProject(res.data);
                   console.log(values.dateFrom);
                 });
@@ -127,6 +133,7 @@ function Project() {
                 .then((res) => {
                   setFiltProject(res.data);
                   console.log(values.dateFrom);
+                  
                 });
                 setProjectName(values.project)
             }else {
@@ -152,9 +159,10 @@ function Project() {
             console.log(projectName)
             setDateFrom(values.dateFrom);
             setDateTo(values.dateTo);
-
+            setIsLoading(true)
             setTimeout(() => {
               resetForm();
+              setIsLoading(false);
               setSubmitting(false);
               setIsPressed(true);
             }, 500);
@@ -176,7 +184,8 @@ function Project() {
                   <option value=''>Välj medarbetare</option>
                   <option value='b0c48f83-d4ee-4006-85fb-fa3f505dc9ff'>
                     Alla medarbetare
-                  </option>                 
+                  </option>         
+                          
                   {person.map((pages) => {
                     return (
                       <>
@@ -232,6 +241,7 @@ function Project() {
         </Formik>
 
         <div className='table-container-report'>
+        { isLoading && <div> <Spinner/></div> } 
           <h2 className="project-name">
             {isPressed
               ? projectName
@@ -267,9 +277,10 @@ function Project() {
             <td className="td">{summing()}{sumHours}</td>
           </tr> : " "}
           </table>
-        </div>
+        </div> 
+        
       </div>
-      <Footer />
+     <Footer />
     </>
   );
 }
