@@ -30,7 +30,7 @@
 }
 .table-container-report{
     margin: 2rem;
-    padding: 2rem;
+    
 }
 
 .table {
@@ -43,7 +43,7 @@
   .th, .td {
     padding: 8px;
     text-align: left;
-    border-bottom: 1px solid #DDD;
+    
 
   }
   .project-total-line{
@@ -51,6 +51,7 @@
     line-height: 2;
     background-color: rgb(216, 222, 226); 
     font-weight: bold;
+    border: 1px solid lightgray;
   }
   
   .tr:hover {background-color: var(--primary-color)}
@@ -68,7 +69,8 @@
     padding: 8px;
     background-color: rgb(216, 222, 226);
     line-height: 2;
-    border-bottom: 1px solid lightgray;
+    border: 1px solid lightgray;
+    border-collapse: collapse;
     
 }
 
@@ -77,6 +79,7 @@
     font-size: 1.2rem;
     line-height: 2;
     background-color: aliceblue;   
+    border: 1px solid lightgray;
     
 
 }
@@ -95,5 +98,38 @@
         display: block;
         margin-bottom: 0.5rem;
     }
+
+    .table-container-report{
+        margin: 1rem;
+        
+    }
+    .th, .td {
+        padding: 4px;
+    }
+
+    .table-head {
+        text-align: left;
+        font-size: 0.9rem;
+        padding: 4px;
+        background-color: rgb(216, 222, 226);
+        line-height: 2.5;
+        border-bottom: 1px solid lightgray;
+        
+    }
+    
+    .project-line {
+        
+        font-size: 0.9rem;
+        line-height: 2.5;
+        background-color: aliceblue;   
+        
+    
+    }
+    .project-total-line{
+        font-size: 0.9rem;
+        line-height: 2.5;
+        background-color: rgb(216, 222, 226); 
+        font-weight: bold;
+      }
 
   }

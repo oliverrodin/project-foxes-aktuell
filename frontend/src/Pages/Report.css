@@ -30,7 +30,7 @@
 /* TABLE*/
 
 
-.table-container {
+.table-container-home {
     width: 100%;
     border-collapse: collapse;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
@@ -83,16 +83,7 @@
 
 
 .report-container{
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    margin-bottom: 4rem;
 }
 
 .report-card{
@@ -172,4 +163,34 @@
     background-color: rgb(124, 245, 124);
 }
  
+@media screen and (max-width: 960px) {
+    .home-page {
+        
+        gap: 4rem;
+        margin: 1rem;
+    }
 
+    
+    .table-head-home {
+        text-align: left;
+        font-size: 0.9rem;
+        background-color: rgb(216, 222, 226);
+        line-height: 2.5;
+        border: 1px solid lightgray;
+        
+    }
+    
+    .project-line-home {
+        font-size: 0.9rem;
+        line-height: 2.5;
+        background-color: aliceblue;
+        border: 1px solid lightgray;
+    }
+    
+    .report-line {
+        font-size: 0.9rem;
+        line-height: 2.5;
+        background-color: aliceblue;
+        border: 1px solid lightgray;
+    }
+}

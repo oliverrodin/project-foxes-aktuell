@@ -6,12 +6,14 @@ import Table from 'react-bootstrap/Table'
 import * as Yup from "yup";
 import axios from "axios";
 import "./Project.css";
+import "./Footer.css"
 
 
 import CustomTextInput from "../Components/CustomTextInput";
 import CustomSelect from "../Components/CustomSelect";
 
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 function Project() {
   const navigate = useNavigate();
@@ -267,6 +269,7 @@ function Project() {
           </table>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

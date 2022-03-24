@@ -63,7 +63,7 @@ function Home() {
               <i class="fa-solid fa-plus" ></i>
             </Link></h2>
           
-            <table className=" table-container">
+            <table className=" table-container-home">
               <thead className="table-head-home">
                 <th>Project</th>
                 <th>Status</th>
@@ -93,7 +93,7 @@ function Home() {
 
           <h2 className="report-header" >Mina tidsrapporter <i class="fa-solid fa-plus" onClick={()=>changeContent2(popuptoggle2)}></i>
           </h2>
-          <table className="table-container">
+          <table className="table-container-home">
               <thead className="table-head-home">
               <th>Datum</th>
                 <th>Project</th>
@@ -223,7 +223,7 @@ function Home() {
         </div>}
               {/* Slut på Pop-Up-Modalen */}
               
-  <Footer/> 
+      <Footer/> 
     </>
   );
 }
