@@ -155,7 +155,7 @@ function Project() {
               resetForm();
               setSubmitting(false);
               setIsPressed(true);
-            }, 2000);
+            }, 500);
 
             console.log(values);
           }}>
