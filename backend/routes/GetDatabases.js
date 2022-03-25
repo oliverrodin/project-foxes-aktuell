@@ -115,7 +115,8 @@ router.post("/people", async (req, res) => {
     const results = db.results.map((page) => {
         return {
             id: page.id,
-            name: page.properties.Name.title[0].plain_text
+            name: page.properties.Name.title[0].plain_text,
+            hours: page.properties.Hours.rollup.number
         }
     })
 
