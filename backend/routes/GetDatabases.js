@@ -14,16 +14,29 @@ router.get("/", (req, res) => {
 
 
 
-router.post("/sendid", (req, res) => {
-    let id = filterId;
-    res.json(id)
-})
-router.post("/getid", async (req, res) => {
-    const id = req.body.id
-    filterId = id
-})
+// router.post("/sendid", (req, res) => {
+//     let id = filterId;
+//     res.json(id)
+// })
+// router.post("/getid", async (req, res) => {
+//     const id = req.body.id
+//     filterId = id
+// })
 
+router.post('/weeks', async (req, res) => {
+    const db = await notion.databases.query({
+        database_id: process.env.NOTION_REPORT_DATABASE_ID
+    })
 
+    const results = db.results.map((row) => {
+        return {
+            hours: row.properties.Hours.number,
+            week: row.properties.Week.formula.string
+        }
+    })
+
+    res.json(results)
+})
 
 router.post("/project", validateToken, async (req, res) => {
     const pageId = req.user.id

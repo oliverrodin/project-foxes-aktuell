@@ -1,73 +1,82 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import {Bar} from 'react-chartjs-2'
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+} from "chart.js"
+import {Bar, Line} from 'react-chartjs-2'
+
+
+
 import { BarChart } from '../Components/Chart'
 
-function Weeks() {
-    const [information, setInformation] = useState({})
-    const fetchInfo = async () => {
-        let name = [];
-        let hours = [];
-        const res = await axios.post("http://localhost:3001/getdatabase/people", {data: " "}, { headers: { accessToken: sessionStorage.getItem("accessToken")}})
-        .then( res => {
-            console.log(res)
-            for (const dataObj of res.data){
-                name.push(dataObj.name)
-                hours.push(dataObj.hours)
-            }
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+)
 
-        })
 
-        console.log(name, hours)
-        setInformation({
-            labels: name,
-            datasets: [
-              {
-                label: "Price in USD",
-                data: hours,
-                backgroundColor: [
-                  "#ffbb11",
-                  "#ecf0f1",
-                  "#50AF95",
-                  "#f3ba2f",
-                  "#2a71d0"
-                ]
-              }
-            ]
-          });
-    
-    }
-  
-    useEffect(() => {
+const getData = async () => {
+    const labels = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52']
+    const data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0]
+
+
+    await axios.post("http://localhost:3001/getdatabase/weeks").then(res => {
         
 
-        fetchInfo()
-       
-       
+        for (let index = 0; index <= 51; index++) {
+            
+            res.data.forEach(element => {
+                if (element.week === labels[index]) {
+                    data[index] += element.hours
+                }
+            });
+            
+
+            
+            
+        }
+        
+        // res.data.forEach(element => {
+        //     labels.push(element.week)
+        //     data.push(element.hours)
+        // });
+
+    })
+    return {
+        labels,
+        data
+        
+    }
+}
+
+function Weeks() {
+    const [chartData, setChartData] = useState([])
+    const [chartlabels, setChartLabels] = useState([])
+    useEffect( async () => {
+        
+        
+        setChartData(getData().data)
+        setChartLabels(getData().labels)
+        
     }, [])
-
     
-
+    console.log(chartData)
+    console.log(chartlabels)
     
-
   return (
     
-       <div>
-        <Bar
-          data={information}
-          options={{
-              plugins: {
-                  title: {
-                      display: true,
-                      text: "hdgkjsjlsakhglk"
-                  },
-                  legend: {
-                      display: true,
-                      position: "bottom"
-                  }
-              }
-          }}
-        />
+    <div>
+        <BarChart data={chartData} labels={chartlabels} />
     </div>
   )
 }
