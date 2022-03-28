@@ -4,7 +4,7 @@
     bottom: 0; 
     left: 0; 
     right: 0;
-    background-color: rgb(202, 202, 202, 0.7);
+    background-color: rgb(202, 202, 202, 0.3);
     padding-top: 15%;
 }
 
@@ -17,21 +17,61 @@
     
 }
 
-.pop-up-header{
-    width: 90%;
-    text-align: right;
-    padding: 0;
+.btn-center{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: rgb(8, 6, 6);
+    line-height: 2;
+    border: 1px solid lightgray;
+    width: 100%;
 }
 
-.text-line {
-    line-height: 1.6;
+.table-container-popup {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid black;
+}
+
+.table-head-popup {
+    text-align: left;
+    font-size: 1.2rem;
+    background-color: rgb(216, 222, 226);
+    line-height: 2;
+    border: 1px solid lightgray;
+    
+}
+
+.report-line-popup td,
+.project-line-popup td,
+.table-head-popup th {
+    padding: 25px;
+    text-align: center;
 }
 
 .modalbtn{
     font-size: 1.2rem;
-    width: 1.2rem;
-    background-color: var(--accent-color-dark);
-    margin-top: 2rem;
+    width: 100%;
+    height: 3rem;
+    background-color: rgb(216, 222, 226);
+    font-weight: bold;   
+}
+
+.project-line-popup {
+    font-size: 1.2rem;
+    line-height: 1;
+    background-color: aliceblue;
+    border: 1px solid lightgray;
+}
+
+.project-popup-second {
+    font-size: 1rem;
+    line-height: 2;
+    background-color: rgb(216, 222, 226);
+    line-height: 2;
+    border: 1px solid lightgray;
+    width: 100%;
 }
 
 .pop-up-card{
@@ -44,4 +84,46 @@
 
 .pop-up-input{
     margin-top: 15%;
+}
+
+@media screen and (max-width: 960px) {
+    .pop-up-container, .pop-up-card {
+        
+        gap: 3rem;
+        margin: 1rem;
+    }
+
+    
+    .table-head-popup {
+        text-align: left;
+        font-size: 0.7rem;
+        background-color: rgb(216, 222, 226);
+        line-height: 2.5;
+        border: 1px solid lightgray;
+        
+    }
+    
+    .project-line-popup {
+        font-size: 0.9rem;
+        line-height: 2.5;
+        background-color: aliceblue;
+        border: 1px solid lightgray;
+    }
+    
+    .report-line-popup {
+        font-size: 0.9rem;
+        line-height: 2.5;
+        background-color: aliceblue;
+        border: 1px solid lightgray;
+    }
+
+    .report-line-popup td,
+    .project-line-popup td,
+    .table-head-popup th {
+        padding: 4px
+    }
+
+    .modalbtn{
+        font-size: 1rem;
+    }
 }
