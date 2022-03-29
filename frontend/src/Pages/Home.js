@@ -132,26 +132,31 @@ function Home() {
         {popuptoggle &&
         <div className="pop-up-container" onClick={changeContent}>
           <div className="pop-up-body" onClick={(e)=>e.stopPropagation()}>
-              <div className="pop-up-header">
-              <button className="modalbtn" onClick={changeContent}> X </button>
-            </div>
+              
             <div className="pop-up-content">
               {popupcontent.map((pop)=>{
                 return (
-                  <div className="pop-up-card">
-                    <p className="text-line">Namn: {pop.personName}</p>
-                    <p className="text-line">Projekt: {pop.projectName}</p>
-                    <p className="text-line">Datum: {pop.date}</p>
-                    <p className="text-line">Timmar: {pop.hours}</p>
-                    <p className="text-line">Anteckning: {pop.note}</p>
-                    <p className="text-line">Kommentar: {pop.comment}</p>
-                    <form className="pop-up-input">
-                    <label>
-                      Lägg till kommentar:
-                      <input type="text" name="name" />
-                    </label>
-                  </form>
+                  <div>
+                    <table className="table-container-popup">
+                      <thead className="table-head-popup">
+                    {/* <p className="text-line">Namn: {pop.personName}</p> */}
+                    <th><strong>Projekt: </strong></th>
+                    <th><strong>Datum: </strong></th>
+                    <th><strong>Timmar: </strong></th>
+                    <th><strong>Anteckning: </strong></th>
+                    <th><strong>Kommentar: </strong></th>
+                    </thead>
+                    <tr className="project-line-popup">
+                      <td>{pop.projectName}</td>
+                      <td>{pop.date}</td>
+                      <td>{pop.hours}</td>
+                      <td>{pop.note}</td>
+                      <td>{pop.comment}</td>
+                    </tr>
+                  </table>
+                  <div className="btn-center"><button className="modalbtn" onClick={changeContent}> Stäng </button></div>
                   </div>
+                  
                 )
               })}
             </div>
@@ -228,7 +233,7 @@ function Home() {
             
             
 
-            <button type='submit' className="btnPos">{props.isSubmitting ? 'laddar...' : 'Skapa Tidsrapport'}</button>
+            <button type='submit' className="modalbtn">{props.isSubmitting ? 'laddar...' : 'Skapa Tidsrapport'}</button>
           </Form>
           )}
         </Formik>

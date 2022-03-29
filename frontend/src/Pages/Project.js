@@ -178,7 +178,7 @@ function Project() {
               <h3 className="project-header">
                 {isPressed
                   ? " "
-                  : "Välj projekt och tidspan för att se mer information"}
+                  : "Välj projekt och tidsperiod för att se mer information"}
               </h3>
               <Form className='admin-container'>
                 <CustomSelect
@@ -237,7 +237,7 @@ function Project() {
                   className='admin-button'>
                   {props.isSubmitting
                     ? "Laddar..."
-                    : "Visa rapporter"}
+                    : "Visa rapporter "}
                 </button>
               </Form>
             </>
@@ -258,11 +258,11 @@ function Project() {
             {isPressed ? dateTo : " "}
           </h3>
           
-          <table className="table">
+          <table className="table" >
             {isPressed ? <th className="table-head"> Datum:  </th> : " " }
             {isPressed ? <th className="table-head"> Projekt:  </th> : " " }
             {isPressed ? <th className="table-head"> Medarbetare:  </th> : " " }
-            {isPressed ? <th className="table-head"> Timmar:  </th> : " " }
+            {isPressed ? <th className="table-head"> Rapporterade timmar: {summing()}{sumHours}</th> : " " }
           {filtProject.map((row) => {
             return (
               
@@ -274,17 +274,14 @@ function Project() {
               </tr>
             );
           })}
-          {isPressed ? <tr className="project-total-line">
-            <td className="td">Totalt: </td>
-            <td></td>
-            <td></td>
-            <td className="td">{summing()}{sumHours}</td>
-          </tr> : " "}
+         
           </table>
         </div> 
         
       </div>
-     <Footer />
+    
+    <Footer />
+    
     </>
   );
 }
