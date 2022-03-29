@@ -1,0 +1,11 @@
+.chart-container {
+    position: relative;
+    display: block;
+    width: 95%;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px dotted rgba(0, 0, 0, 0.3);
+    padding-bottom: 3rem;
+}

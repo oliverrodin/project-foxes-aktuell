@@ -15,6 +15,7 @@ import CustomSelect from "../Components/CustomSelect";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Spinner from "../Components/Spinner";
+import Weeks from "./Weeks";
 
 function Project() {
   const navigate = useNavigate();
@@ -71,7 +72,10 @@ function Project() {
   return (
     <>
       <Navbar />
+      <Weeks />
+      
       <div className='project-page'>
+      
         <Formik
           initialValues={{
             person: "",
