@@ -233,7 +233,7 @@ function Project() {
                   className='admin-button'>
                   {props.isSubmitting
                     ? "Laddar..."
-                    : "Visa rapporter"}
+                    : "Visa rapporter "}
                 </button>
               </Form>
             </>
