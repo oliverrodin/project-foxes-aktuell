@@ -4,6 +4,7 @@ footer {
     padding-bottom: 1rem;
     background-color: rgb(216, 222, 226);
     position:absolute;
+    
  }
 
  .logo-footer {
@@ -15,6 +16,7 @@ footer {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    
   }
 
 .footer-content {
@@ -23,6 +25,7 @@ footer {
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    
 }
 
 
@@ -33,9 +36,6 @@ footer {
     font-size: 18px;
 
 }
-
-
-
 
 .footer-bottom {
     
