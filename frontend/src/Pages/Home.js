@@ -170,7 +170,6 @@ function Home() {
         <div className="pop-up-container" onClick={changeContent2}>
           <div className="pop-up-body" onClick={(e)=>e.stopPropagation()}>
               <div className="pop-up-header">
-              <button className="modalbtn" onClick={changeContent2}> X </button>
             </div>
             <div className="pop-up-content">
             <Formik

@@ -11,19 +11,15 @@
 .pop-up-body{
     width: fit-content;
     height: fit-content;
-    margin: auto;
-    
-    background: var(--primary-color);
-    
+    margin: auto;  
 }
 
 .btn-center{
     justify-content: center;
     text-align: center;
     align-items: center;
-    background-color: rgb(8, 6, 6);
+    background-color: transparent;
     line-height: 2;
-    border: 1px solid lightgray;
     width: 100%;
 }
 
@@ -51,6 +47,7 @@
 }
 
 .modalbtn{
+    margin-top: 1rem;
     font-size: 1.2rem;
     width: 100%;
     height: 3rem;
