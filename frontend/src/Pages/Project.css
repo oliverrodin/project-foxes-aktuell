@@ -2,7 +2,6 @@
 .admin-container{
     text-align: center;
     display: block;    
-    background-color: rgb(216, 222, 226);
     height: 3rem;
 }
 
@@ -51,11 +50,8 @@
 
 
 .project-page {
-<<<<<<< HEAD
     
-=======
     background-color: aliceblue;
->>>>>>> 7a7486d14aca0fa052b38eb77a623a12a95a2d1c
     min-height: 50vh;
 }
 .table-container-report{
@@ -130,6 +126,7 @@
 
     .table-container-report{
         margin: 1rem;
+        margin-top: 17rem;
         
     }
     .th, .td {
