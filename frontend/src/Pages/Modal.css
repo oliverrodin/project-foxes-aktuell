@@ -54,7 +54,7 @@
     font-size: 1.2rem;
     width: 100%;
     height: 3rem;
-    background-color: rgb(216, 222, 226);
+    background-color: var(--accent-color-light);
     font-weight: bold;   
 }
 

@@ -52,7 +52,7 @@
 
 .project-page {
     background-color: aliceblue;
-    height: 100vh;
+    min-height: 50vh;
 }
 .table-container-report{
     margin: 2rem;

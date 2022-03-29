@@ -174,7 +174,7 @@ function Project() {
               <h3 className="project-header">
                 {isPressed
                   ? " "
-                  : "Välj projekt och tidspan för att se mer information"}
+                  : "Välj projekt och tidsperiod för att se mer information"}
               </h3>
               <Form className='admin-container'>
                 <CustomSelect
