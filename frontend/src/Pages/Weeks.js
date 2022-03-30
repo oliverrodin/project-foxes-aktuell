@@ -46,12 +46,8 @@ const getData = async () => {
 
             
             
-        }
-        
-        // res.data.forEach(element => {
-        //     labels.push(element.week)
-        //     data.push(element.hours)
-        // });
+        }       
+    
 
     })
     return {
@@ -69,108 +65,7 @@ function Weeks() {
 
     const {fullChart, setFullChart} = useState( new ChartJS())
 
-    // const moveChart = {
-    //     id: 'moveChart',
-    //     afterEvent(chart, args) {
-    //         const {ctx, canvas, chartArea: {left, right, top, bottom, width, height} } = chart;
-
-    //         canvas.addEventListener( 'mousemove', (event) => {
-                
-    //             const x = args.event.x;
-    //             const y = args.event.y;
-
-    //             if(x >= left -15 && x <= left +15 && y >= height / 2 + top - 15 &&
-    //             y <= height / 2 + top + 15 ) {
-    //                 canvas.style.cursor = 'pointer';
-    //             } else if (x >= right -15 && x <= right +15 && y >= height / 2 + top - 15 &&
-    //             y <= height / 2 + top + 15 ) {
-    //                 canvas.style.cursor = 'pointer';
-    //             } else {
-    //                 canvas.style.cursor = 'default';
-    //             }
-
-
-    //         })
-    //     },
-
-    //     // afterEvent(chart, args) {
-    //     //     const {ctx, canvas, chartArea: {left, right, top, bottom, width, height} } = chart;
-
-    //     //     canvas.addEventListener( 'click', (event) => {
-    //     //         const x = args.event.x;
-    //     //         const y = args.event.y;
-
-    //     //         console.log(x)
-    //     //         console.log(y)
-
-    //     //         if(x >= right -15 && x <= right +15 && y >= height / 2 + top - 15 &&
-    //     //         y <= height / 2 + top + 15 ) {
-
-    //     //             chart.options.scales.x.min = chart.options.scales.x.min + 8;
-    //     //             chart.options.scales.x.max = chart.options.scales.x.max + 8;
-
-    //     //             chart.update();
-    //     //         }
-
-    //     //     })
-    //     // },
-
-    //     afterDraw(chart, args, pluginOptions) {
-    //         const {ctx, chartArea: {left, right, top, bottom, width, height} } = chart;
-            
-
-    //         class CircleChevron {
-    //             // constructor(x1, y1) {
-
-    //             // }
-
-    //             draw(ctx, x1, pixels) {
-    //                 const angle = Math.PI / 180;
-    //                 ctx.beginPath();
-    //                 ctx.lineWidth = 3;
-    //                 ctx.strokeStyle = 'rgba(102, 102, 102, 0.5)';
-    //                 ctx.fillStyle = 'white';
-    //                 ctx.arc(x1, height / 2 + top, 15, angle * 0, angle * 360, false)
-    //                 ctx.stroke();
-    //                 ctx.fill();
-    //                 ctx.closePath();
-
-    //                 ctx.beginPath();
-    //                 ctx.lineWidth = 3;
-    //                 ctx.strokeStyle = 'rgba(255, 26, 104, 1)'
-    //                 ctx.moveTo(x1 + pixels, height / 2 + top - 7.5);
-    //                 ctx.lineTo(x1 - pixels, height / 2 + top);
-    //                 ctx.lineTo(x1 + pixels, height / 2 + top + 7.5);
-    //                 ctx.stroke();
-    //                 ctx.closePath();
-    //             }
-    //          }
-
-    //         let drawCircleLeft = new CircleChevron();
-    //         drawCircleLeft.draw(ctx, left, 5);
-
-    //         let drawCircleRight = new CircleChevron();
-    //         drawCircleRight.draw(ctx, right, -5);
-
-
-    //     }
-    // }
-
-    
-    
-    // function moveScroll(chart, args) {
-        
-    //    const { ctx, canvas, chartArea: {left, right, top, bottom, width, height }} = 
-    //     console.log('ok')
-    //    canvas.addEventListener('click', (event) => {
-    //        const rect = canvas.getBoundingClientRect();
-    //        const x = event.clientX - rect.left;
-    //        const y = event.clientY - rect.top;
-    //        console.log(x)
-    //        console.log(y)
-    //    })
-
-    // }
+  
      
 
     const chart = () => {

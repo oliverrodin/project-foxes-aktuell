@@ -5,7 +5,6 @@ import axios from 'axios';
 
 //Pages
 import Home from './Pages/Home'
-import CreateReport from './Pages/CreateReport'
 import Navbar from './Pages/Navbar'
 import Login from './Pages/Login'
 import Registration from './Pages/Registration';
@@ -34,8 +33,7 @@ function App() {
           
           <Route path="/" element= {<Login />} />
           <Route path="/registration" element={<Registration/>} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/createreport" element={<CreateReport />} />
+          <Route path="/home" element={<Home />} />         
           <Route path="/project" element={<Project/>} />
           <Route path="/week" element={<Weeks/>}  />
         </Routes> 

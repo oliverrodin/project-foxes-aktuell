@@ -11,6 +11,7 @@ import { Formik, Form, Field, ErrorMessage, useField } from "formik";
 import * as Yup from 'yup'
 import Footer from "./Footer";
 import Spinner from "../Components/Spinner";
+import './CreateReport.css'
 
 function Home() {
   const [reports, setReports] = useState([]);
@@ -183,11 +184,11 @@ function Home() {
           }}
           validationSchema={
             Yup.object().shape({
-            project: Yup.string().required(),
-            date: Yup.date().required(),
-            hours:Yup.number().required(),
-            note: Yup.string().required(),
-            comment: Yup.string().required()
+            project: Yup.string().required("Ovan fält är obligatoriskt"),
+            date: Yup.date().required("Ovan fält är obligatoriskt"),
+            hours:Yup.number().required("Ovan fält är obligatoriskt"),
+            note: Yup.string().required("Ovan fält är obligatoriskt"),
+            comment: Yup.string().required("Ovan fält är obligatoriskt")
           })}
           onSubmit={(values, {setSubmitting, resetForm}) => {
             axios
@@ -224,12 +225,16 @@ function Home() {
                   
                 })
               }
-            </CustomSelect>   
+            </CustomSelect>
+            <ErrorMessage name="project" component="span" style={{color: "red"}}/>   
             <CustomTextInput className="timeReportInput" label="Datum" name="date" type="date"/>
+            <ErrorMessage name="date" component="span" style={{color: "red"}}/>
             <CustomTextInput className="timeReportInput" label="Timmar" name="hours" type="number" placeholder='ex. 10...'/>
+            <ErrorMessage name="hours" component="span" style={{color: "red"}}/>
             <CustomTextInput className="timeReportInput" label="Anteckning" name="note" type="text" placeholder='ex. möte...'/>
+            <ErrorMessage name="note" component="span" style={{color: "red"}}/>
             <CustomTextInput className="timeReportInput" label="Kommentar" name="comment" type="text" placeholder='ex. löste denna bugg..'/>
-            
+            <ErrorMessage name="comment" component="span" style={{color: "red"}}/>
             
 
             <button type='submit' className="modalbtn">{props.isSubmitting ? 'laddar...' : 'Skapa Tidsrapport'}</button>

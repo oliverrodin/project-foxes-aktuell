@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Formik, Form, yupToFormErrors } from "formik";
-import Table from 'react-bootstrap/Table'
+import { Formik, Form } from "formik";
+
 
 import * as Yup from "yup";
 import axios from "axios";
@@ -181,6 +181,7 @@ function Project() {
                   : "Välj projekt och tidsperiod för att se mer information"}
               </h3>
               <Form className='admin-container'>
+              
                 <CustomSelect
                   className='admin-form'
                   label='Medarbetare:'
@@ -200,7 +201,7 @@ function Project() {
                     );
                   })}
                 </CustomSelect>
-
+                   
                 <CustomSelect
                   className='admin-form'
                   label='Projekt:'
@@ -219,6 +220,7 @@ function Project() {
                     );
                   })}
                 </CustomSelect>
+                
                 <CustomTextInput
                   className='admin-form'
                   label='Från:'
