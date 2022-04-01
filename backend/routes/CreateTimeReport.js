@@ -27,7 +27,7 @@ router.post("/", validateToken, async (req, res ) => {
     const hours = req.body.hours
     const note = req.body.note
     const comment = req.body.comment
-    //await createNewReport( person, project, date, hours, note, comment)
+ 
     
     
      await notion.pages.create({

@@ -81,14 +81,6 @@ router.post("/login", async (req, res) => {
                     id: user.results[0].id}, "importantsecret"
                )
        
-               // const data = user.results.map((pages) => {
-               //     return {
-               //         name: pages.properties.Name.title[0].plain_text,
-               //         username: pages.properties.Username.rich_text[0].plain_text,
-               //         id: pages.id
-               //     }
-                    
-               // })
                res.json(accessToken)
             }
     

@@ -140,7 +140,6 @@ function Home() {
                   <div>
                     <table className="table-container-popup">
                       <thead className="table-head-popup">
-                    {/* <p className="text-line">Namn: {pop.personName}</p> */}
                     <th><strong>Projekt: </strong></th>
                     <th><strong>Datum: </strong></th>
                     <th><strong>Timmar: </strong></th>

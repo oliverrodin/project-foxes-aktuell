@@ -5,23 +5,12 @@ const express = require('express')
 const { validateToken } = require('../middlewares/AuthMiddlewares')
 const router = express.Router()
 
-let filterId = ""
-let filterName = ""
+
 
 router.get("/", (req, res) => {
     res.send("hi")
 })
 
-
-
-// router.post("/sendid", (req, res) => {
-//     let id = filterId;
-//     res.json(id)
-// })
-// router.post("/getid", async (req, res) => {
-//     const id = req.body.id
-//     filterId = id
-// })
 
 router.post('/weeks', async (req, res) => {
     const db = await notion.databases.query({
