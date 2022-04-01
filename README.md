@@ -10,7 +10,6 @@ Ett tidsrapport-program där man bland annat kan skapa tidsrapporter för olika 
 - För vår backend används Node.JS och Express.JS. 
 - Länk till vår Scrum board: https://granite-pigeon-849.notion.site/Scrum-Board-484080acef914e289011a375a0ff9239
 - Länk till vår databas: https://granite-pigeon-849.notion.site/Timereport-DB-095e572e938d416aae5468411d4a8945
-- 
 
 ## Startscript
 
@@ -28,6 +27,7 @@ npm start
 - Node.JS
 - Express.JS
 - Nodemon
+- JSON Web Token
 - React.JS 
 - Formik 
 - React chart JS -2
